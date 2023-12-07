@@ -91,7 +91,8 @@ test('material blue with texture: if exist a reference snapshot should match wit
     albedoColor: Color4.Blue()
   })
 
-  await context.helpers.waitNTicks(2)
+  // TODO: should be able to know when the texture is loaded
+  await context.helpers.waitNTicks(100)
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_material_03.png',
@@ -239,7 +240,8 @@ test('material uv checker: if exist a reference snapshot should match with it', 
     }
   })
 
-  await context.helpers.waitNTicks(2)
+  // TODO: should be able to know when the texture is loaded
+  await context.helpers.waitNTicks(100)
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_material_08.png',
@@ -278,7 +280,8 @@ test('material uv checker with transparency mode auto: if exist a reference snap
     transparencyMode: MaterialTransparencyMode.MTM_AUTO
   })
 
-  await context.helpers.waitNTicks(2)
+  // TODO: should be able to know when the texture is loaded
+  await context.helpers.waitNTicks(100)
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_material_09.png',
@@ -318,7 +321,8 @@ test('material uv checker with transparency mode blend: if exist a reference sna
     castShadows: false
   })
 
-  await context.helpers.waitNTicks(2)
+  // TODO: should be able to know when the texture is loaded
+  await context.helpers.waitNTicks(100)
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_material_10.png',
@@ -359,7 +363,8 @@ test('material transparency mode auto with emissive: if exist a reference snapsh
     emissiveIntensity: 150
   })
 
-  await context.helpers.waitNTicks(2)
+  // TODO: should be able to know when the texture is loaded
+  await context.helpers.waitNTicks(100)
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_material_11.png',
@@ -391,7 +396,8 @@ test('material rock wall texture: if exist a reference snapshot should match wit
     }
   })
 
-  await context.helpers.waitNTicks(2)
+  // TODO: should be able to know when the texture is loaded
+  await context.helpers.waitNTicks(100)
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_material_12.png',
@@ -429,7 +435,8 @@ test('material rock wall texture with bump texture: if exist a reference snapsho
     }
   })
 
-  await context.helpers.waitNTicks(2)
+  // TODO: should be able to know when the texture is loaded
+  await context.helpers.waitNTicks(100)
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_material_13.png',
