@@ -9,7 +9,7 @@ import { customAddEntity } from '../../utils/entity'
 import { assertSnapshot } from '../../utils/snapshot-test'
 import { test } from './../../testing'
 
-test('material blue emissiveIntensity:100: if exist a reference snapshot should match with it', async function (context) {
+test('material: blue emissiveIntensity:100: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -36,7 +36,7 @@ test('material blue emissiveIntensity:100: if exist a reference snapshot should 
   )
 })
 
-test(' material blue with alpha: if exist a reference snapshot should match with it', async function (context) {
+test('material: blue with alpha if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -65,7 +65,7 @@ test(' material blue with alpha: if exist a reference snapshot should match with
   )
 })
 
-test('material blue with texture: if exist a reference snapshot should match with it', async function (context) {
+test('material: blue with texture if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -101,7 +101,7 @@ test('material blue with texture: if exist a reference snapshot should match wit
   )
 })
 
-test('material blue with metallic:0 roghness:1 alphaTest:1: if exist a reference snapshot should match with it', async function (context) {
+test('material: blue with metallic:0 roghness:1 alphaTest:1: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -130,7 +130,7 @@ test('material blue with metallic:0 roghness:1 alphaTest:1: if exist a reference
   )
 })
 
-test('material blue with metallic:0.5 roghness:0.5 alphaTest:1: if exist a reference snapshot should match with it', async function (context) {
+test('material: blue with metallic:0.5 roghness:0.5 alphaTest:1: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -159,7 +159,7 @@ test('material blue with metallic:0.5 roghness:0.5 alphaTest:1: if exist a refer
   )
 })
 
-test('material blue with metallic:0 roghness:0 alphaTest:1: if exist a reference snapshot should match with it', async function (context) {
+test('material: blue with metallic:0 roghness:0 alphaTest:1: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -188,7 +188,7 @@ test('material blue with metallic:0 roghness:0 alphaTest:1: if exist a reference
   )
 })
 
-test('material blue with metallic:1 roghness:0 alphaTest:1: if exist a reference snapshot should match with it', async function (context) {
+test('material: blue with metallic:1 roghness:0 alphaTest:1: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -217,7 +217,7 @@ test('material blue with metallic:1 roghness:0 alphaTest:1: if exist a reference
   )
 })
 
-test('material uv checker: if exist a reference snapshot should match with it', async function (context) {
+test('material: uv checker if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -250,7 +250,7 @@ test('material uv checker: if exist a reference snapshot should match with it', 
   )
 })
 
-test('material uv checker with transparency mode auto: if exist a reference snapshot should match with it', async function (context) {
+test('material: uv checker with transparency mode auto: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -290,7 +290,7 @@ test('material uv checker with transparency mode auto: if exist a reference snap
   )
 })
 
-test('material uv checker with transparency mode blend: if exist a reference snapshot should match with it', async function (context) {
+test('material: uv checker with transparency mode blend: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -331,7 +331,7 @@ test('material uv checker with transparency mode blend: if exist a reference sna
   )
 })
 
-test('material transparency mode auto with emissive: if exist a reference snapshot should match with it', async function (context) {
+test('material: transparency mode auto with emissive: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -373,7 +373,7 @@ test('material transparency mode auto with emissive: if exist a reference snapsh
   )
 })
 
-test('material rock wall texture: if exist a reference snapshot should match with it', async function (context) {
+test('material: rock wall texture if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
@@ -406,7 +406,7 @@ test('material rock wall texture: if exist a reference snapshot should match wit
   )
 })
 
-test('material rock wall texture with bump texture: if exist a reference snapshot should match with it', async function (context) {
+test('material: rock wall texture with bump texture: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {

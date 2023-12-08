@@ -19,7 +19,7 @@ const areaColorFP: Color4 = Color4.create(1, 0, 0, 0.3)
 const floorColorTP: Color4 = Color4.Blue()
 const areaColorTP: Color4 = Color4.create(0, 0, 1, 0.3)
 
-test('camera-mode should be 0 (first-person) with camera area mode', async function (context) {
+test('camera-mode: should be 0 (first-person)', async function (context) {
   // Comment the behavior below and uncomment this one to run the test manually
   // yield* waitTriggerTest(startTestEntity.get())
 
@@ -63,7 +63,7 @@ test('camera-mode should be 0 (first-person) with camera area mode', async funct
   })
 })
 
-test('camera-mode should be 1 (third-person) with camera area mode', async function (context) {
+test('camera-mode: should be 1 (third-person)', async function (context) {
   // yield* waitTriggerTest(thirdPersonEntity.get())
 
   // Delete old entities
@@ -93,7 +93,7 @@ test('camera-mode should be 1 (third-person) with camera area mode', async funct
   })
 })
 
-test('transform.scale should not has effect in cameraModeArea.area', async function (context) {
+test('camera-mode: transform.scale should not has effect in camera-mode-area.area', async function (context) {
   // yield* waitTriggerTest(scaledEntity.get())
 
   // Player is moved to origin where camera isn't forced
@@ -137,7 +137,7 @@ test('transform.scale should not has effect in cameraModeArea.area', async funct
   })
 })
 
-test('transform.rotation should has effect in cameraModeArea.area', async function (context) {
+test('camera-mode: transform.rotation should has effect in camera-mode-area.area', async function (context) {
   // yield* waitTriggerTest(rotatedEntity.get())
 
   // Delete old entities
@@ -166,7 +166,7 @@ test('transform.rotation should has effect in cameraModeArea.area', async functi
   })
 })
 
-test('cameraModeArea should alternate according the area wich player enters', async function (context) {
+test('camera-mode: camera-mode-area should alternate according the area wich player enters', async function (context) {
   // yield* waitTriggerTest(overlapedEntity2.get())
   // Delete old entities
   customAddEntity.clean()
@@ -239,7 +239,7 @@ test('cameraModeArea should alternate according the area wich player enters', as
   })
 })
 
-test('camera-mode-area: clean and wait until change-camera-mode animation finishes', async function (context) {
+test('camera-mode: camera-mode-area clean and wait until change-camera-mode animation finishes', async function (context) {
   customAddEntity.clean()
   await context.helpers.waitNTicks(100)
 })

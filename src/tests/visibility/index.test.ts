@@ -10,7 +10,7 @@ import { customAddEntity } from '../../utils/entity'
 import { assertSnapshot } from '../../utils/snapshot-test'
 import { test } from './../../testing'
 
-test('visibility true: if exist a reference snapshot should match with it', async function (context) {
+test('visibility: true - if exist a reference snapshot should match with it', async function (context) {
   await context.helpers.waitTicksUntil(() => {
     const tickNumber = EngineInfo.getOrNull(engine.RootEntity)?.tickNumber ?? 0
     if (tickNumber > 100) {
@@ -40,7 +40,7 @@ test('visibility true: if exist a reference snapshot should match with it', asyn
   )
 })
 
-test('visibility false: if exist a reference snapshot should match with it', async function (context) {
+test('visibility: false - if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {

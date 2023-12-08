@@ -10,14 +10,14 @@ import { assertSnapshot } from '../../utils/snapshot-test'
 import { test } from './../../testing'
 import { assert } from '../../testing/assert'
 
-test('gltfContainer: avocado model loads correctly', async function (context) {
+test('gltf-container: avocado model loads correctly', async function (context) {
   customAddEntity.clean()
   const avocado = customAddEntity.addEntity()
   Transform.create(avocado, {
     position: Vector3.create(8, 0.25, 8)
   })
   GltfContainer.create(avocado, {
-    src: 'src/models/avocado.glb'
+    src: 'src/assets/models/avocado.glb'
   })
 
   assert(
@@ -46,7 +46,7 @@ test('gltfContainer: avocado model loads correctly', async function (context) {
   )
 })
 
-test('gltfContainer: H.E.V Mark IV model loads correctly', async function (context) {
+test('gltf-container: H.E.V Mark IV model loads correctly', async function (context) {
   customAddEntity.clean()
   const hev = customAddEntity.addEntity()
   Transform.create(hev, {
@@ -54,7 +54,7 @@ test('gltfContainer: H.E.V Mark IV model loads correctly', async function (conte
     scale: Vector3.create(0.03, 0.03, 0.03)
   })
   GltfContainer.create(hev, {
-    src: 'src/models/hevmarkiv.glb'
+    src: 'src/assets/models/hevmarkiv.glb'
   })
 
   assert(

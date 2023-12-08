@@ -2,7 +2,7 @@ import { EngineInfo, engine } from '@dcl/sdk/ecs'
 import { assertEquals } from '../../testing/assert'
 import { test } from './../../testing'
 
-test('engineInfo: testing engine information (tickNumber and quantity of properties)', async function (context) {
+test('engine-info: testing engine information (tickNumber and quantity of properties)', async function (context) {
   const firstEngineInfo = EngineInfo.getOrNull(engine.RootEntity)
   console.log(EngineInfo.get(engine.RootEntity))
   await context.helpers.waitNTicks(5)

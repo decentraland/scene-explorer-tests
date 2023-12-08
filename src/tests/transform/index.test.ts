@@ -58,7 +58,7 @@ async function waitAndAssertTransformPosition(
   }
 }
 
-test('should transform test-mechanism works well', async function (context) {
+test('transform: should transform test-mechanism works well', async function (context) {
   assert(
     customAddEntity.isEmpty(),
     'custom add entity should be empty in the second test'
@@ -150,7 +150,7 @@ test('should transform test-mechanism works well', async function (context) {
   )
 })
 
-test(`should transform with a parent add parent's translation`, async function (context) {
+test(`transform: should transform with a parent add parent's translation`, async function (context) {
   customAddEntity.clean()
   assert(
     customAddEntity.isEmpty(),
@@ -173,7 +173,7 @@ test(`should transform with a parent add parent's translation`, async function (
   )
 })
 
-test(`should transform with a parent add parent's translation with scale/rotation`, async function (context) {
+test(`transform: should transform with a parent add parent's translation with scale/rotation`, async function (context) {
   const [eA, eB, eC, eD, eE, eF] = Array.from({ length: 6 }, () =>
     customAddEntity.addEntity()
   )

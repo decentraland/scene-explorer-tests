@@ -9,7 +9,7 @@ test('mesh-renderer clean previous tests', async function (context) {
   await context.helpers.waitNTicks(100)
 })
 
-test('mesh-renderer box: if exist a reference snapshot should match with it', async function (context) {
+test('mesh-renderer: box - if exist a reference snapshot should match with it', async function (context) {
   const cube = customAddEntity.addEntity()
   Transform.create(cube, {
     position: Vector3.create(8, 2, 8),
@@ -31,7 +31,7 @@ test('mesh-renderer box: if exist a reference snapshot should match with it', as
   )
 })
 
-test('mesh-renderer sphere: if exist a reference snapshot should match with it', async function (context) {
+test('mesh-renderer: sphere - if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const sphere = customAddEntity.addEntity()
   Transform.create(sphere, {
@@ -54,7 +54,7 @@ test('mesh-renderer sphere: if exist a reference snapshot should match with it',
   )
 })
 
-test('mesh-renderer cylinder: if exist a reference snapshot should match with it', async function (context) {
+test('mesh-renderer: cylinder - if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const cylinder = customAddEntity.addEntity()
   Transform.create(cylinder, {
@@ -77,7 +77,7 @@ test('mesh-renderer cylinder: if exist a reference snapshot should match with it
   )
 })
 
-test('mesh-renderer plane: if exist a reference snapshot should match with it', async function (context) {
+test('mesh-renderer: plane - if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
   const plane = customAddEntity.addEntity()
   Transform.create(plane, {
