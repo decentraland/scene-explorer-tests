@@ -18,6 +18,7 @@ import './tests/visibility/index.test'
 import './tests/gltf-container/index.test'
 import './tests/video-player/index.test'
 import './tests/text-shape/index.test'
+import './tests/avatar-attach/index.test'
 
 export function main(): void {
   createBlackRoom()
