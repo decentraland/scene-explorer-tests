@@ -42,7 +42,7 @@ test('avatar-attach: attach an entity on left hand', async function (context) {
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_avatar_attach_1.png',
-    Vector3.create(8, 1, 14),
+    Vector3.create(8, 1, 11),
     Vector3.create(8, 1, 8)
   )
 })
@@ -70,7 +70,7 @@ test('avatar-attach: attach an entity on right hand', async function (context) {
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_avatar_attach_2.png',
-    Vector3.create(8, 1, 14),
+    Vector3.create(8, 1, 11),
     Vector3.create(8, 1, 8)
   )
 })
@@ -98,12 +98,12 @@ test('avatar-attach: attach an entity on tag name', async function (context) {
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_avatar_attach_3.png',
-    Vector3.create(8, 1, 14),
+    Vector3.create(8, 1, 11),
     Vector3.create(8, 1, 8)
   )
 })
 
-test('avatar-attach: attach an entity on tag name', async function (context) {
+test('avatar-attach: attach an entity on position', async function (context) {
   customAddEntity.clean()
   const attachedEntity = customAddEntity.addEntity()
   AvatarAttach.create(attachedEntity, {
@@ -126,7 +126,7 @@ test('avatar-attach: attach an entity on tag name', async function (context) {
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_avatar_attach_4.png',
-    Vector3.create(8, 1, 14),
+    Vector3.create(8, 1, 11),
     Vector3.create(8, 1, 8)
   )
 })
