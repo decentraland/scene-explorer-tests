@@ -1,25 +1,24 @@
 import { CustomReactEcsRenderer } from '../../utils/ui'
 import { test } from '../../testing'
 
-import ReactEcs, { UiEntity, Button, Label } from '@dcl/sdk/react-ecs'
+import ReactEcs, { UiEntity, Label } from '@dcl/sdk/react-ecs'
 import { Color4, Vector3 } from '@dcl/sdk/math'
 import { assertSnapshot } from '../../utils/snapshot-test'
-import { UiCanvasInformation, engine } from '@dcl/sdk/ecs'
+// import { UiCanvasInformation, engine } from '@dcl/sdk/ecs'
 
-function getScreenCanvasInfo() {
+function getScreenCanvasInfo(): { w: number; h: number } {
   return {
     w: 512,
     h: 512
   }
-  return {
-    w: UiCanvasInformation.getOrNull(engine.RootEntity)?.width || 24,
-    h: UiCanvasInformation.getOrNull(engine.RootEntity)?.height || 24
-  }
+  // return {
+  //   w: UiCanvasInformation.getOrNull(engine.RootEntity)?.width || 24,
+  //   h: UiCanvasInformation.getOrNull(engine.RootEntity)?.height || 24
+  // }
 }
 
-function TestElementText() {
+function TestElementText(): ReactEcs.JSX.Element {
   const screenSize = getScreenCanvasInfo()
-  // console.log("asd")
   return (
     <UiEntity
       uiTransform={{
@@ -41,7 +40,7 @@ function TestElementText() {
   )
 }
 
-function TestElementTextBlue() {
+function TestElementTextBlue(): ReactEcs.JSX.Element {
   const screenSize = getScreenCanvasInfo()
   // console.log("asd")
   return (

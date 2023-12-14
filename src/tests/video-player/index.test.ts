@@ -61,18 +61,17 @@ test('video-player: if exist a reference snapshot should match with it', async f
       })
   }
 
-  function snapshotSystem(dt: number): void {
+  async function snapshotSystem(dt: number): Promise<void> {
     timer -= dt
     if (timer <= 0) {
       timer = 1
-      compareOrTakeSnapshot()
+      await compareOrTakeSnapshot()
       console.log(successed)
     }
     if (snapshotsQuantity === snapshotId) {
       testFinished = true
     }
   }
-
   engine.addSystem(snapshotSystem)
 
   await context.helpers.waitTicksUntil(() => {

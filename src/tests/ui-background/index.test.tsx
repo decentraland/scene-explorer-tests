@@ -1,23 +1,23 @@
 import { CustomReactEcsRenderer } from '../../utils/ui'
 import { test } from '../../testing'
 
-import ReactEcs, { UiEntity, Button } from '@dcl/sdk/react-ecs'
+import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4, Vector3 } from '@dcl/sdk/math'
 import { assertSnapshot } from '../../utils/snapshot-test'
-import { UiCanvasInformation, engine } from '@dcl/sdk/ecs'
+// import { UiCanvasInformation, engine } from '@dcl/sdk/ecs'
 
-function getScreenCanvasInfo() {
+function getScreenCanvasInfo(): { w: number; h: number } {
   return {
     w: 1024,
     h: 1024
   }
-  return {
-    w: UiCanvasInformation.getOrNull(engine.RootEntity)?.width || 24,
-    h: UiCanvasInformation.getOrNull(engine.RootEntity)?.height || 24
-  }
+  // return {
+  //   w: UiCanvasInformation.getOrNull(engine.RootEntity)?.width || 24,
+  //   h: UiCanvasInformation.getOrNull(engine.RootEntity)?.height || 24
+  // }
 }
 
-function TestElementGreen() {
+function TestElementGreen(): ReactEcs.JSX.Element {
   const screenSize = getScreenCanvasInfo()
   // console.log("asd")
   return (
@@ -33,7 +33,7 @@ function TestElementGreen() {
   )
 }
 
-function TestElementRed() {
+function TestElementRed(): ReactEcs.JSX.Element {
   const screenSize = getScreenCanvasInfo()
   // console.log("asd")
   return (
@@ -49,7 +49,7 @@ function TestElementRed() {
   )
 }
 
-function TestElementRocks() {
+function TestElementRocks(): ReactEcs.JSX.Element {
   const screenSize = getScreenCanvasInfo()
   // console.log("asd")
   return (
