@@ -3,20 +3,9 @@ import { CustomReactEcsRenderer } from '../../utils/ui'
 
 import { Material, engine } from '@dcl/sdk/ecs'
 import { Color4, Vector3 } from '@dcl/sdk/math'
-import ReactEcs, { Button, Dropdown, Label, UiEntity } from '@dcl/sdk/react-ecs'
+import ReactEcs, { Dropdown, Label, UiEntity } from '@dcl/sdk/react-ecs'
 import { assertSnapshot } from '../../utils/snapshot-test'
-// import { UiCanvasInformation, engine } from '@dcl/sdk/ecs'
 
-function getScreenCanvasInfo(): { w: number; h: number } {
-  return {
-    w: 512,
-    h: 512
-  }
-  // return {
-  //   w: UiCanvasInformation.getOrNull(engine.RootEntity)?.width || 24,
-  //   h: UiCanvasInformation.getOrNull(engine.RootEntity)?.height || 24
-  // }
-}
 let clicked: boolean = false
 
 function ChangeColor(index: number): void {
@@ -46,7 +35,6 @@ function ChangeColor(index: number): void {
 }
 
 function TestElementButton(): ReactEcs.JSX.Element {
-  const screenSize = getScreenCanvasInfo()
   return (
     <UiEntity
       uiTransform={{
