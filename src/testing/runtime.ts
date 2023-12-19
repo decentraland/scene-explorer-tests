@@ -49,6 +49,8 @@ export function createTestRuntime(
 
   // add a system to the engine that resolves all promises in the `nextTickFuture` array
   engine.addSystem(function TestingFrameworkCoroutineRunner(dt) {
+    // Avoids the test to begin without the player in the scene
+    if (!Transform.has(engine.PlayerEntity)) return
     currentFrameCounter++
     currentFrameTime += dt
     // resolve all nextTick futures.
