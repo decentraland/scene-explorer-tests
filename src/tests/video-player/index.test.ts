@@ -72,7 +72,7 @@ test('video-player: if exist a reference snapshot should match with it', async f
       testFinished = true
     }
   }
-  engine.addSystem(snapshotSystem)
+  engine.addSystem(() => snapshotSystem)
 
   await context.helpers.waitTicksUntil(() => {
     if (testFinished) {
@@ -82,7 +82,7 @@ test('video-player: if exist a reference snapshot should match with it', async f
     }
   })
 
-  engine.removeSystem(snapshotSystem)
+  engine.removeSystem(() => snapshotSystem)
 
   customAddEntity.clean()
   assertEquals(successed, snapshotsQuantity)

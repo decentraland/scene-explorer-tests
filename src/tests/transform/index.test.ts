@@ -59,6 +59,14 @@ async function waitAndAssertTransformPosition(
 }
 
 test('transform: should transform test-mechanism works well', async function (context) {
+  await context.helpers.waitTicksUntil(() => {
+    if (Transform.has(engine.PlayerEntity)) {
+      return true
+    } else {
+      return false
+    }
+  }, 6e5)
+  
   assert(
     customAddEntity.isEmpty(),
     'custom add entity should be empty in the second test'
