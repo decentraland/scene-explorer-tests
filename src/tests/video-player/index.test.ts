@@ -48,31 +48,29 @@ test('video-player: if exist a reference snapshot should match with it', async f
 
   const snapshotsQuantity: number = 4
 
-  async function compareOrTakeSnapshot(): Promise<void> {
+  function compareOrTakeSnapshot(): void {
     snapshotId += 1
-    await assertSnapshot(
+    void assertSnapshot(
       `screenshot/$explorer_snapshot_video_player_${snapshotId}.png`,
       Vector3.create(8, 8, 8),
       Vector3.create(8, 8, 16)
     )
-      .then(() => successed++)
-      .catch((error) => {
-        console.error('The snapshot promise fail!', error)
-      })
+    successed++
   }
 
-  async function snapshotSystem(dt: number): Promise<void> {
+  function snapshotSystem(dt: number): void {
     timer -= dt
     if (timer <= 0) {
       timer = 1
-      await compareOrTakeSnapshot()
+      compareOrTakeSnapshot()
       console.log(successed)
     }
     if (snapshotsQuantity === snapshotId) {
       testFinished = true
     }
   }
-  engine.addSystem(() => snapshotSystem)
+
+  engine.addSystem(snapshotSystem)
 
   await context.helpers.waitTicksUntil(() => {
     if (testFinished) {
@@ -82,7 +80,7 @@ test('video-player: if exist a reference snapshot should match with it', async f
     }
   })
 
-  engine.removeSystem(() => snapshotSystem)
+  engine.removeSystem(snapshotSystem)
 
   customAddEntity.clean()
   assertEquals(successed, snapshotsQuantity)

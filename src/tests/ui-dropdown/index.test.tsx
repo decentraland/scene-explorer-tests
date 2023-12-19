@@ -5,6 +5,7 @@ import { Material, engine } from '@dcl/sdk/ecs'
 import { Color4, Vector3 } from '@dcl/sdk/math'
 import ReactEcs, { Dropdown, Label, UiEntity } from '@dcl/sdk/react-ecs'
 import { assertSnapshot } from '../../utils/snapshot-test'
+import { customAddEntity } from '../../utils/entity'
 
 let clicked: boolean = false
 
@@ -68,6 +69,7 @@ function TestElementButton(): ReactEcs.JSX.Element {
 }
 
 test('ui-button: should change background color to red', async function (context) {
+  customAddEntity.clean()
   clicked = false
   CustomReactEcsRenderer.destroy()
   CustomReactEcsRenderer.setUiRenderer(TestElementButton)

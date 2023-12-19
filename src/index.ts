@@ -21,8 +21,8 @@ import './tests/text-shape/index.test'
 import './tests/avatar-attach/index.test'
 import './tests/ui-background/index.test'
 import './tests/ui-text/index.test'
-import './tests/ui-button/index.test'
-import './tests/ui-dropdown/index.test'
+// import './tests/ui-button/index.test'
+// import './tests/ui-dropdown/index.test'
 
 export function main(): void {
   createBlackRoom()

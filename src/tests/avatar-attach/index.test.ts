@@ -11,6 +11,8 @@ import { assertSnapshot } from '../../utils/snapshot-test'
 import { test } from './../../testing'
 import { assertMovePlayerTo } from '../../utils/helpers'
 
+// TODO: Ensure the main player avattar isn't hidden
+
 test('avatar-attach: attach an entity on left hand', async function (context) {
   await context.helpers.waitTicksUntil(() => {
     const tickNumber = EngineInfo.getOrNull(engine.RootEntity)?.tickNumber ?? 0
