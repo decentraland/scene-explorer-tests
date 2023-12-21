@@ -15,6 +15,7 @@ import type {
 // It takes a `TestingModule` instance (loaded from require('~system/Testing')) and an `IEngine` instance (from Decentraland's SDK).
 // It returns an object with a `test` function that can be used to define tests.
 /* @__PURE__ */
+
 export function createTestRuntime(
   testingModule: TestingModule,
   engine: IEngine
@@ -49,10 +50,10 @@ export function createTestRuntime(
 
   // add a system to the engine that resolves all promises in the `nextTickFuture` array
   engine.addSystem(function TestingFrameworkCoroutineRunner(dt) {
-    // Avoids the test to begin without the player in the scene
-    if (!Transform.has(engine.PlayerEntity)) return
     currentFrameCounter++
     currentFrameTime += dt
+    // Avoids the test to begin without the player in the scene
+    if (!Transform.has(engine.PlayerEntity)) return
     // resolve all nextTick futures.
     nextTickFuture.splice(0, nextTickFuture.length).forEach((_) => _(dt))
   })

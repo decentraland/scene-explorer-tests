@@ -36,9 +36,9 @@ test('billboard: mode BM_NONE', async function (context) {
   })
   const colliderToRaycast = customAddEntity.addEntity()
   Transform.create(colliderToRaycast, {
-    parent: engine.PlayerEntity,
+    parent: engine.CameraEntity,
     position: Vector3.create(0, 1, 0.45),
-    scale: Vector3.create(3, 3, 0.1)
+    scale: Vector3.create(1, 1, 0.1)
   })
   MeshCollider.create(colliderToRaycast, {
     collisionMask: ColliderLayer.CL_CUSTOM5,
@@ -58,6 +58,10 @@ test('billboard: mode BM_NONE', async function (context) {
       box: { uvs: [] }
     }
   })
+
+  // TODO: This tick waits that billboard creating was finished
+  await context.helpers.waitNTicks(1)
+
   await assertMovePlayerTo(context, Vector3.create(4, 0, 4), sceneCenter)
 
   Raycast.create(billboardEntity, {
@@ -71,6 +75,7 @@ test('billboard: mode BM_NONE', async function (context) {
     collisionMask: ColliderLayer.CL_CUSTOM5
   })
 
+  // TODO: These ticks wait that raycast creating was finished
   await context.helpers.waitNTicks(3)
 
   const rayResult = RaycastResult.get(billboardEntity)
@@ -100,9 +105,9 @@ test('billboard: mode BM_Y', async function (context) {
   // Setup billboard
   const colliderToRaycast = customAddEntity.addEntity()
   Transform.create(colliderToRaycast, {
-    parent: engine.PlayerEntity,
+    parent: engine.CameraEntity,
     position: Vector3.create(0, 1, 0.45),
-    scale: Vector3.create(3, 3, 0.1)
+    scale: Vector3.create(1, 1, 0.1)
   })
   MeshCollider.create(colliderToRaycast, {
     collisionMask: ColliderLayer.CL_CUSTOM5,
@@ -123,6 +128,9 @@ test('billboard: mode BM_Y', async function (context) {
     }
   })
 
+  // TODO: This tick waits that billboard creating was finished
+  await context.helpers.waitNTicks(1)
+
   Raycast.create(billboardEntity, {
     direction: {
       $case: 'localDirection',
@@ -134,6 +142,7 @@ test('billboard: mode BM_Y', async function (context) {
     collisionMask: ColliderLayer.CL_CUSTOM5
   })
 
+  // TODO: These ticks wait that raycast creating was finished
   await context.helpers.waitNTicks(3)
 
   const rayResult = RaycastResult.get(billboardEntity)
@@ -180,9 +189,9 @@ test('billboard: mode BM_ALL', async function (context) {
 
   const colliderToRaycast = customAddEntity.addEntity()
   Transform.create(colliderToRaycast, {
-    parent: engine.PlayerEntity,
+    parent: engine.CameraEntity,
     position: Vector3.create(0, 1, 0),
-    scale: Vector3.create(1, 2, 1) // TODO: change Z to 0.1 to make it more precisely
+    scale: Vector3.create(1, 1, 0.1)
   })
   MeshCollider.create(colliderToRaycast, {
     collisionMask: ColliderLayer.CL_CUSTOM4,
@@ -206,6 +215,9 @@ test('billboard: mode BM_ALL', async function (context) {
     }
   })
 
+  // TODO: This tick waits that billboard creating was finished
+  await context.helpers.waitNTicks(1)
+
   Raycast.create(billboardEntity, {
     direction: {
       $case: 'localDirection',
@@ -217,6 +229,7 @@ test('billboard: mode BM_ALL', async function (context) {
     collisionMask: ColliderLayer.CL_CUSTOM4
   })
 
+  // TODO: These ticks wait that raycast creating was finished
   await context.helpers.waitNTicks(3)
 
   const rayResult = RaycastResult.get(billboardEntity)
