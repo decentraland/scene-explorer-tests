@@ -5,27 +5,49 @@
 This tool under construction will be used to test the different components of the SDK7.
 
 The main objective of the tests is to ensure that the different clients under development (Godot and Bevy) work in accordance with the foundation client.
-As a consequence we will also collect and report strange behaviors that we observe in the foundation client.
+As a consequence we will also collect and report unexpected behaviors that we observe in the foundation client.
 
-## How choice the component tests:
-
-To run the test you must import the one you want to run in the file `src/index.ts` for example:
-
-```Typescript
-
-export * from ``dcl/sdk``.
-import { setupUi } from '../tests/camera-mode/ui'
-import '../tests/camera-mode/index.test'
-
-export function main() {
-    setupUi()
-}
-```
-
-## How to start:
-
-You can use the command line. Inside this scene root directory run:
+## How to clean directory:
 
 ```
-npm run start
+git clean -xdf
 ```
+
+## Build and run:
+
+### For all components:
+
+In root folder:
+
+```
+npm run build
+npm start
+```
+
+note: this way doesn't have hot reload
+
+### For a specific component:
+
+```
+cd component-test-folder-scene
+npm run build
+npm start
+```
+
+note: this way does have reload
+
+## To test in Godot Explorer:
+
+### For all componentes:
+
+```
+cargo run -- run -- --rendering-driver opengl3 --scene-test "[[52,-52],[52,-54],[52,-56],[52,-58],[52,-60],[52,-62],[52,-64],[52,-66],[52,-68],[54,-52],[54,-54],[54,-56],[54,-58],[54,-60]]" --realm "http://localhost:8000"
+```
+
+### For specific components:
+
+```
+cargo run -- run -- --rendering-driver opengl3 --scene-test "[[coord.x,coord.y]]" --realm "http://localhost:8000"
+```
+
+where coord.x and coord.y are the scene coordinates
