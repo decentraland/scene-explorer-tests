@@ -1,5 +1,5 @@
 {
-  "name": "dcl-project",
+  "name": "scene-explorer-tests",
   "version": "protocol-squad",
   "description": "SDK7 Template scene",
   "scripts": {
@@ -11,7 +11,8 @@
     "lint:fix": "eslint --fix src/**/*.{ts,tsx}",
     "format": "prettier --config .prettierrc -c src/**/*.{ts,tsx}",
     "format:fix": "prettier -w --config .prettierrc -c src/**/*.{ts,tsx}",
-    "install-jsruntime": "npm i https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/@dcl/js-runtime/dcl-js-runtime-7.3.30-7035425066.commit-a5b75cb.tgz"
+    "sync": "syncpack format --config .syncpackrc.json  --source \"*/package.json\" --source package.json",
+    "test-sync": "syncpack list-mismatches --config .syncpackrc.json  --source \"*/package.json\" --source package.json"
   },
   "devDependencies": {
     "@dcl/js-runtime": "7.3.30-7035425066.commit-a5b75cb",
@@ -33,5 +34,28 @@
     "singleQuote": true,
     "printWidth": 120,
     "trailingComma": "none"
+  },
+  "workspaces": [
+    "52,-52-raycast",
+    "52,-54-transform",
+    "52,-56-billboard",
+    "52,-58-camera-mode",
+    "52,-60-engine-info",
+    "52,-62-gltf-container",
+    "52,-64-visibility",
+    "52,-66-mesh-renderer",
+    "52,-68-avatar-attach",
+    "54,-52-material",
+    "54,-54-text-shape",
+    "54,-56-video-player",
+    "54,-58-ui-background",
+    "54,-60-ui-text",
+    "54,-62-pointer-lock",
+    "54,-64-ui-button",
+    "54,-66-ui-dropdown"
+  ],
+  "dependencies": {
+    "glob": "^10.3.10",
+    "syncpack": "^11.2.1"
   }
 }
