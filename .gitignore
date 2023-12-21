@@ -12,4 +12,4 @@ node_modules/
 ipfs
 yarn.lock
 **/tsconfig.tsbuildinfo
-test.js
+static

@@ -10,5 +10,5 @@
 	"rules": {
 		"@typescript-eslint/consistent-type-definitions": ["error", "type"]
 	},
-	"ignorePatterns": ["build.js", "src/testing/*.ts"]
+	"ignorePatterns": ["testing-library/src/testing/*.ts", "node_modules"]
 }
