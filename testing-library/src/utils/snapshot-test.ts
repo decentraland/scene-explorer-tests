@@ -5,7 +5,6 @@ import {
   type Vector2,
   type TakeAndCompareScreenshotRequest_ComparisonMethodGreyPixelDiff,
   type TakeAndCompareScreenshotResponse,
-  TakeAndCompareScreenshotRequest_SnapshotMode
 } from '~system/Testing'
 
 let explorerAgent = 'unknown'
@@ -82,7 +81,7 @@ export async function assertSnapshot(
     .replace('$explorer', explorerAgent)
     .toLocaleLowerCase()
   const result = await takeAndCompareScreenshot({
-    snapshotMode: TakeAndCompareScreenshotRequest_SnapshotMode.SM_3D_AND_UI,
+    snapshotMode: 0 as any,
     srcStoredSnapshot: finalSrcStoredSnapshot,
     cameraPosition,
     cameraTarget,
