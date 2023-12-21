@@ -4,7 +4,7 @@ import {
   takeAndCompareScreenshot,
   type Vector2,
   type TakeAndCompareScreenshotRequest_ComparisonMethodGreyPixelDiff,
-  type TakeAndCompareScreenshotResponse,
+  type TakeAndCompareScreenshotResponse
 } from '~system/Testing'
 
 let explorerAgent = 'unknown'
