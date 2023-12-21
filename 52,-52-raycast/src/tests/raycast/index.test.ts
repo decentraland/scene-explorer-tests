@@ -9,7 +9,10 @@ import {
 } from '@dcl/sdk/ecs'
 import { Quaternion, Vector3 } from '@dcl/sdk/math'
 
-import { assertComponentValue, assertEquals } from 'testing-library/src/testing/assert'
+import {
+  assertComponentValue,
+  assertEquals
+} from 'testing-library/src/testing/assert'
 import { type TestFunctionContext } from 'testing-library/src/testing/types'
 import { test } from 'testing-library/src/testing'
 import { customAddEntity } from 'testing-library/src/utils/entity'

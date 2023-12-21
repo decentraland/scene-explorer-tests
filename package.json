@@ -8,9 +8,9 @@
     "start": "sdk-commands start --skip-build -w",
     "export-static": "sdk-commands export-static --destination static/ --realmName scene-explorer-tests --baseUrl https://decentraland.github.io/scene-explorer-tests/ --commsAdapter ws-room:ws-room-service.decentraland.org/rooms/scene-explorer-tests",
     "lint": "eslint ./**/*.{ts,tsx}",
-    "lint:fix": "eslint --fix src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix ./**/*.{ts,tsx}",
     "format": "prettier --config .prettierrc -c ./**/*.{ts,tsx}",
-    "format:fix": "prettier -w --config .prettierrc -c src/**/*.{ts,tsx}",
+    "format:fix": "prettier -w --config .prettierrc -c ./**/*.{ts,tsx}",
     "sync": "syncpack format --config .syncpackrc.json  --source \"*/package.json\" --source package.json",
     "test-sync": "syncpack list-mismatches --config .syncpackrc.json  --source \"*/package.json\" --source package.json"
   },
