@@ -1,0 +1,42 @@
+import { EngineInfo, PointerLock, engine } from '@dcl/sdk/ecs'
+import { assertEquals } from 'testing-library/src/testing/assert'
+import { test } from 'testing-library/src/testing'
+
+test('pointer-lock: check pointerLock.isLocked = false when scene initiate', async function (context) {
+  await context.helpers.waitTicksUntil(() => {
+    const tickNumber = EngineInfo.getOrNull(engine.RootEntity)?.tickNumber ?? 0
+    if (tickNumber > 100) {
+      return true
+    } else {
+      return false
+    }
+  })
+  const pointerLockValue = PointerLock.get(engine.CameraEntity)
+  assertEquals(
+    pointerLockValue.isPointerLocked,
+    false,
+    'isPointerLocked should be false without player interaction'
+  )
+})
+
+test('pointer-lock: check pointerLock.isLocked = true after simulate a click on scene', async function (context) {
+  await context.helpers.waitNTicks(5)
+  // TODO: simulate click on screen to force pointerLock.isLocked = true
+  const pointerLockValue = PointerLock.get(engine.CameraEntity)
+  assertEquals(
+    pointerLockValue.isPointerLocked,
+    true,
+    'isPointerLocked should be true if player clicked the scene'
+  )
+})
+
+test('pointer-lock: check pointerLock.isLocked = false after simulate pressing ESC key on scene', async function (context) {
+  await context.helpers.waitNTicks(5)
+  // TODO: simulate ESC to force pointerLock.isLocked = false
+  const pointerLockValue = PointerLock.get(engine.CameraEntity)
+  assertEquals(
+    pointerLockValue.isPointerLocked,
+    false,
+    'isPointerLocked should be false if player pressed ESC key'
+  )
+})
