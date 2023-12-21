@@ -1,10 +1,10 @@
-import { CustomReactEcsRenderer } from '../../utils/ui'
-import { test } from '../../testing'
+import { CustomReactEcsRenderer } from 'testing-library/src/utils/ui'
+import { test } from 'testing-library/src/testing'
 
 import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4, Vector3 } from '@dcl/sdk/math'
-import { assertSnapshot } from '../../utils/snapshot-test'
-import { getScreenCanvasInfo } from '../../utils/ui/ui-utils'
+import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
+import { getScreenCanvasInfo } from 'testing-library/src/utils/ui/ui-utils'
 
 function TestElementGreen(): ReactEcs.JSX.Element {
   const screenSize = getScreenCanvasInfo()

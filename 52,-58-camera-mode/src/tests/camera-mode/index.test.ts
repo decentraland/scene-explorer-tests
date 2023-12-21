@@ -6,11 +6,11 @@ import {
   engine
 } from '@dcl/sdk/ecs'
 import { Color4, Vector3 } from '@dcl/sdk/math'
-import { test } from '../../testing'
-import { assertComponentValue } from '../../testing/assert'
-import { createAreaMode } from '../../utils/camera-mode-area'
-import { customAddEntity } from '../../utils/entity'
-import { assertMovePlayerTo } from '../../utils/helpers'
+import { test } from 'testing-library/src/testing'
+import { assertComponentValue } from 'testing-library/src/testing/assert'
+import { createAreaMode } from 'testing-library/src/utils/camera-mode-area'
+import { customAddEntity } from 'testing-library/src/utils/entity'
+import { assertMovePlayerTo } from 'testing-library/src/utils/helpers'
 
 const sceneCenter: Vector3 = Vector3.create(8, 0, 8)
 const cameraTarget: Vector3 = Vector3.create(16, 1, 8)

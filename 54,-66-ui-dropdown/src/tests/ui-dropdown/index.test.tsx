@@ -1,11 +1,11 @@
-import { test } from '../../testing'
-import { CustomReactEcsRenderer } from '../../utils/ui'
+import { test } from 'testing-library/src/testing'
+import { CustomReactEcsRenderer } from 'testing-library/src/utils/ui'
 
 import { Material, engine } from '@dcl/sdk/ecs'
 import { Color4, Vector3 } from '@dcl/sdk/math'
 import ReactEcs, { Dropdown, Label, UiEntity } from '@dcl/sdk/react-ecs'
-import { assertSnapshot } from '../../utils/snapshot-test'
-import { customAddEntity } from '../../utils/entity'
+import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
+import { customAddEntity } from 'testing-library/src/utils/entity'
 
 let clicked: boolean = false
 

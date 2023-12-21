@@ -1,8 +1,8 @@
 import { MeshRenderer, Transform } from '@dcl/sdk/ecs'
 import { Vector3 } from '@dcl/sdk/math'
-import { customAddEntity } from '../../utils/entity'
-import { assertSnapshot } from '../../utils/snapshot-test'
-import { test } from '../../testing'
+import { customAddEntity } from 'testing-library/src/utils/entity'
+import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
+import { test } from 'testing-library/src/testing'
 
 test('mesh-renderer clean previous tests', async function (context) {
   customAddEntity.clean()

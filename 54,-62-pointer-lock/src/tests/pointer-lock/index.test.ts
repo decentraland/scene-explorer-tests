@@ -1,6 +1,6 @@
 import { EngineInfo, PointerLock, engine } from '@dcl/sdk/ecs'
-import { assertEquals } from '../../testing/assert'
-import { test } from '../../testing'
+import { assertEquals } from 'testing-library/src/testing/assert'
+import { test } from 'testing-library/src/testing'
 
 test('pointer-lock: check pointerLock.isLocked = false when scene initiate', async function (context) {
   await context.helpers.waitTicksUntil(() => {

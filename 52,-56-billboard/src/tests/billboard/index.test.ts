@@ -12,11 +12,11 @@ import {
   engine
 } from '@dcl/sdk/ecs'
 import { Vector3 } from '@dcl/sdk/math'
-import { assertEquals } from '../../testing/assert'
-import { test } from '../../testing'
-import { customAddEntity } from '../../utils/entity'
-import { assertMovePlayerTo } from '../../utils/helpers'
-import { waitForMeshColliderApplied } from '../../utils/godot'
+import { assertEquals } from 'testing-library/src/testing/assert'
+import { test } from 'testing-library/src/testing'
+import { customAddEntity } from 'testing-library/src/utils/entity'
+import { assertMovePlayerTo } from 'testing-library/src/utils/helpers'
+import { waitForMeshColliderApplied } from 'testing-library/src/utils/godot'
 
 // BM_NONE = 0,
 // BM_X = 1,

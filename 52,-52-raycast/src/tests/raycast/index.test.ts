@@ -8,12 +8,13 @@ import {
   engine
 } from '@dcl/sdk/ecs'
 import { Quaternion, Vector3 } from '@dcl/sdk/math'
-import { assertComponentValue, assertEquals } from '../../testing/assert'
-import { type TestFunctionContext } from '../../testing/types'
-import { test } from '../../testing'
-import { customAddEntity } from '../../utils/entity'
-import { createChainedEntities } from '../../utils/helpers'
-import { waitForMeshColliderApplied } from '../../utils/godot'
+
+import { assertComponentValue, assertEquals } from 'testing-library/src/testing/assert'
+import { type TestFunctionContext } from 'testing-library/src/testing/types'
+import { test } from 'testing-library/src/testing'
+import { customAddEntity } from 'testing-library/src/utils/entity'
+import { createChainedEntities } from 'testing-library/src/utils/helpers'
+import { waitForMeshColliderApplied } from 'testing-library/src/utils/godot'
 
 function getNextTickNumber(): number {
   return (EngineInfo.getOrNull(engine.RootEntity)?.tickNumber ?? -1) + 1

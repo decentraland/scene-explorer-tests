@@ -7,10 +7,10 @@ import {
 } from '@dcl/sdk/ecs'
 import { Vector3 } from '@dcl/sdk/math'
 
-import { assertSnapshot } from '../../utils/snapshot-test'
-import { test } from '../../testing'
-import { assertEquals } from '../../testing/assert'
-import { customAddEntity } from '../../utils/entity'
+import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
+import { test } from 'testing-library/src/testing'
+import { assertEquals } from 'testing-library/src/testing/assert'
+import { customAddEntity } from 'testing-library/src/utils/entity'
 
 test('video-player: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()

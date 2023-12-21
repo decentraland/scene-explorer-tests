@@ -5,10 +5,10 @@ import {
   Transform
 } from '@dcl/sdk/ecs'
 import { Vector3 } from '@dcl/sdk/math'
-import { customAddEntity } from '../../utils/entity'
-import { assertSnapshot } from '../../utils/snapshot-test'
-import { test } from '../../testing'
-import { assert } from '../../testing/assert'
+import { customAddEntity } from 'testing-library/src/utils/entity'
+import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
+import { test } from 'testing-library/src/testing'
+import { assert } from 'testing-library/src/testing/assert'
 
 test('gltf-container: avocado model loads correctly', async function (context) {
   customAddEntity.clean()

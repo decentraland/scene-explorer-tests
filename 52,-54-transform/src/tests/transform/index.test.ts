@@ -7,11 +7,11 @@ import {
   engine
 } from '@dcl/sdk/ecs'
 import { Quaternion, Vector3 } from '@dcl/sdk/math'
-import { getGlobalTransform } from '../../utils/transformed'
-import { test } from './../../testing'
-import { assert, assertEquals } from './../../testing/assert'
-import { customAddEntity } from './../../utils/entity'
-import { type TestFunctionContext } from '../../testing/types'
+import { getGlobalTransform } from 'testing-library/src/utils/transformed'
+import { test } from 'testing-library/src/testing'
+import { assert, assertEquals } from 'testing-library/src/testing/assert'
+import { customAddEntity } from 'testing-library/src/utils/entity'
+import { type TestFunctionContext } from 'testing-library/src/testing/types'
 
 let customWaitAndAssertTransformPositionTimestamp = 0
 async function waitAndAssertTransformPosition(
