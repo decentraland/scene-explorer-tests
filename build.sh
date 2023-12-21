@@ -4,8 +4,8 @@ echo "Installing and building all folders"
 
 rm -rf node_modules
 
-$JS_RUNTIME_PACKAGE="https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/@dcl/js-runtime/dcl-js-runtime-7.3.30-7035425066.commit-a5b75cb.tgz"
-$SDK_PACKAGE="https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/dcl-sdk-7.3.30-7035425066.commit-a5b75cb.tgz"
+JS_RUNTIME_PACKAGE="https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/@dcl/js-runtime/dcl-js-runtime-7.3.36-7291127796.commit-b299b0d.tgz"
+SDK_PACKAGE="https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/dcl-sdk-7.3.36-7291127796.commit-b299b0d.tgz"
 
 npm i $SDK_PACKAGE $JS_RUNTIME_PACKAGE --legacy-peer-deps
 
