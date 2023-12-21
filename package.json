@@ -53,7 +53,8 @@
     "54,-60-ui-text",
     "54,-62-pointer-lock",
     "54,-64-ui-button",
-    "54,-66-ui-dropdown"
+    "54,-66-ui-dropdown",
+    "testing-library"
   ],
   "dependencies": {
     "glob": "^10.3.10",
