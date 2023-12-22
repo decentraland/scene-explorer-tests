@@ -37,8 +37,8 @@ test('billboard: mode BM_NONE', async function (context) {
   const colliderToRaycast = customAddEntity.addEntity()
   Transform.create(colliderToRaycast, {
     parent: engine.CameraEntity,
-    position: Vector3.create(0, 1, 0.45),
-    scale: Vector3.create(1, 1, 0.1)
+    position: Vector3.create(0, 0, 0),
+    scale: Vector3.create(0.1, 0.1, 0.1)
   })
   MeshCollider.create(colliderToRaycast, {
     collisionMask: ColliderLayer.CL_CUSTOM5,
@@ -105,9 +105,9 @@ test('billboard: mode BM_Y', async function (context) {
   // Setup billboard
   const colliderToRaycast = customAddEntity.addEntity()
   Transform.create(colliderToRaycast, {
-    parent: engine.CameraEntity,
-    position: Vector3.create(0, 1, 0.45),
-    scale: Vector3.create(1, 1, 0.1)
+    parent: engine.PlayerEntity,
+    position: Vector3.create(0, 1, 0),
+    scale: Vector3.create(0.1, 0.1, 0.1)
   })
   MeshCollider.create(colliderToRaycast, {
     collisionMask: ColliderLayer.CL_CUSTOM5,
@@ -190,8 +190,8 @@ test('billboard: mode BM_ALL', async function (context) {
   const colliderToRaycast = customAddEntity.addEntity()
   Transform.create(colliderToRaycast, {
     parent: engine.CameraEntity,
-    position: Vector3.create(0, 1, 0),
-    scale: Vector3.create(1, 1, 0.1)
+    position: Vector3.create(0, 0, 0),
+    scale: Vector3.create(0.1, 0.1, 0.1)
   })
   MeshCollider.create(colliderToRaycast, {
     collisionMask: ColliderLayer.CL_CUSTOM4,
