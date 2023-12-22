@@ -1,7 +1,7 @@
 /**
  * This module provides a createTestRuntime function that returns an object with a test function that can be used to define tests.
  */
-
+import { onEnterScene, onLeaveScene } from '@dcl/sdk/observables'
 import { IEngine, Transform } from '@dcl/ecs'
 import { assertEquals } from './assert'
 import type {
@@ -10,6 +10,8 @@ import type {
   TestHelpers,
   TestFunctionContext
 } from './types'
+import { PlayerIdentityData, engine } from '@dcl/sdk/ecs'
+import { getUserData } from '~system/UserIdentity'
 
 // This function creates a test runtime that can be used to define and run tests.
 // It takes a `TestingModule` instance (loaded from require('~system/Testing')) and an `IEngine` instance (from Decentraland's SDK).
@@ -48,12 +50,16 @@ export function createTestRuntime(
     })
   }
 
+  const playerIsInside = getPlayerIsInside()
+
   // add a system to the engine that resolves all promises in the `nextTickFuture` array
   engine.addSystem(function TestingFrameworkCoroutineRunner(dt) {
     currentFrameCounter++
     currentFrameTime += dt
+
     // Avoids the test to begin without the player in the scene
-    if (!Transform.has(engine.PlayerEntity)) return
+    if (!playerIsInside.get()) return
+
     // resolve all nextTick futures.
     nextTickFuture.splice(0, nextTickFuture.length).forEach((_) => _(dt))
   })
@@ -277,4 +283,40 @@ function isPromise(t: any): t is Promise<unknown> {
 function globalFail(error: any) {
   // for now, the failure is only writing to the console.error.
   console.error(error)
+}
+
+function getPlayerIsInside() {
+  let playerIsInside = false
+  let currentUserId: string | undefined = undefined
+
+  getUserData({}).then((player) => {
+    if (player) {
+      currentUserId = player.data?.userId
+    }
+  })
+
+  function toggleState(userId: string, value: boolean) {
+    const currentPlayerAddress = PlayerIdentityData.getOrNull(
+      engine.PlayerEntity
+    )?.address
+
+    const primaryPlayerUserId = currentPlayerAddress || currentUserId
+    if (currentUserId === userId) {
+      playerIsInside = value
+    }
+  }
+
+  onEnterScene.add((player) => {
+    toggleState(player.userId, true)
+  })
+
+  onLeaveScene.add((player) => {
+    toggleState(player.userId, false)
+  })
+
+  return {
+    get() {
+      return playerIsInside
+    }
+  }
 }
