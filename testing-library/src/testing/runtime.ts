@@ -12,6 +12,8 @@ import type {
 } from './types'
 import { PlayerIdentityData, engine } from '@dcl/sdk/ecs'
 import { getUserData } from '~system/UserIdentity'
+import { withInterval } from '../utils/helpers'
+import { getPlayersInScene } from '~system/Players'
 
 // This function creates a test runtime that can be used to define and run tests.
 // It takes a `TestingModule` instance (loaded from require('~system/Testing')) and an `IEngine` instance (from Decentraland's SDK).
@@ -51,6 +53,9 @@ export function createTestRuntime(
   }
 
   const playerIsInside = getPlayerIsInside()
+  const waitingFn = withInterval(1, () => {
+    console.log('Waiting for the player to be inside the scene...')
+  })
 
   // add a system to the engine that resolves all promises in the `nextTickFuture` array
   engine.addSystem(function TestingFrameworkCoroutineRunner(dt) {
@@ -58,7 +63,10 @@ export function createTestRuntime(
     currentFrameTime += dt
 
     // Avoids the test to begin without the player in the scene
-    if (!playerIsInside.get()) return
+    if (!playerIsInside.get()) {
+      waitingFn(dt)
+      return
+    }
 
     // resolve all nextTick futures.
     nextTickFuture.splice(0, nextTickFuture.length).forEach((_) => _(dt))
@@ -293,15 +301,20 @@ function getPlayerIsInside() {
     if (player) {
       currentUserId = player.data?.userId
     }
+
+    getPlayersInScene({}).then((data) => {
+      for (const player of data.players) {
+        toggleState(player.userId, true)
+      }
+    })
   })
 
   function toggleState(userId: string, value: boolean) {
     const currentPlayerAddress = PlayerIdentityData.getOrNull(
       engine.PlayerEntity
     )?.address
-
     const primaryPlayerUserId = currentPlayerAddress || currentUserId
-    if (currentUserId === userId) {
+    if (primaryPlayerUserId === userId) {
       playerIsInside = value
     }
   }
