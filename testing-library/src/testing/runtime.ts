@@ -62,14 +62,16 @@ export function createTestRuntime(
     currentFrameCounter++
     currentFrameTime += dt
 
-    // Avoids the test to begin without the player in the scene
-    if (!playerIsInside.get()) {
-      waitingFn(dt)
-      return
-    }
+    if (nextTickFuture.length) {    
+      // Avoids the test to begin without the player in the scene
+      if (!playerIsInside.get()) {
+        waitingFn(dt)
+        return
+      }
 
-    // resolve all nextTick futures.
-    nextTickFuture.splice(0, nextTickFuture.length).forEach((_) => _(dt))
+      // resolve all nextTick futures.
+      nextTickFuture.splice(0, nextTickFuture.length).forEach((_) => _(dt))
+    }
   })
 
   // this function schedules a value to be processed on the next frame, the test runner will
