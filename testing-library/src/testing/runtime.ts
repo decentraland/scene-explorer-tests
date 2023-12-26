@@ -62,7 +62,7 @@ export function createTestRuntime(
     currentFrameCounter++
     currentFrameTime += dt
 
-    if (nextTickFuture.length) {    
+    if (nextTickFuture.length) {
       // Avoids the test to begin without the player in the scene
       if (!playerIsInside.get()) {
         waitingFn(dt)

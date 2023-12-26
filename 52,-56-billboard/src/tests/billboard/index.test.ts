@@ -156,7 +156,7 @@ test('billboard: mode BM_Y', async function (context) {
 
 test('billboard: mode BM_ALL', async function (context) {
   customAddEntity.clean()
-  
+
   // Create a step box to place the player on top of it
   const stepBoxSize = 4.0
   const stepBoxPosition = Vector3.create(4, stepBoxSize / 2.0, 4)
