@@ -37,8 +37,8 @@ test('billboard: mode BM_NONE', async function (context) {
   const colliderToRaycast = customAddEntity.addEntity()
   Transform.create(colliderToRaycast, {
     parent: engine.CameraEntity,
-    position: Vector3.create(0, 1, 0.45),
-    scale: Vector3.create(1, 1, 0.1)
+    position: Vector3.create(0, 0, 0),
+    scale: Vector3.create(0.1, 0.1, 0.1)
   })
   MeshCollider.create(colliderToRaycast, {
     collisionMask: ColliderLayer.CL_CUSTOM5,
@@ -90,7 +90,7 @@ test('billboard: mode BM_NONE', async function (context) {
 test('billboard: mode BM_Y', async function (context) {
   customAddEntity.clean()
 
-  // Setup player
+  // The camera mode area is used to fix the camera in the player position
   const cameraModeAreaE = customAddEntity.addEntity()
   Transform.create(cameraModeAreaE, { position: sceneCenter })
   CameraModeArea.create(cameraModeAreaE, {
@@ -105,9 +105,9 @@ test('billboard: mode BM_Y', async function (context) {
   // Setup billboard
   const colliderToRaycast = customAddEntity.addEntity()
   Transform.create(colliderToRaycast, {
-    parent: engine.CameraEntity,
-    position: Vector3.create(0, 1, 0.45),
-    scale: Vector3.create(1, 1, 0.1)
+    parent: engine.PlayerEntity,
+    position: Vector3.create(0, 1, 0),
+    scale: Vector3.create(0.1, 0.1, 0.1)
   })
   MeshCollider.create(colliderToRaycast, {
     collisionMask: ColliderLayer.CL_CUSTOM5,
@@ -155,22 +155,23 @@ test('billboard: mode BM_Y', async function (context) {
 })
 
 test('billboard: mode BM_ALL', async function (context) {
-  const stepBoxSize = 4.0
-
   customAddEntity.clean()
-  const cameraModeAreaE = customAddEntity.addEntity()
-  Transform.create(cameraModeAreaE, { position: sceneCenter })
-  CameraModeArea.create(cameraModeAreaE, {
-    area: Vector3.create(16, stepBoxSize + 6, 16),
-    mode: 0
-  })
-
+  
+  // Create a step box to place the player on top of it
+  const stepBoxSize = 4.0
   const stepBoxPosition = Vector3.create(4, stepBoxSize / 2.0, 4)
-
   const stepBox = customAddEntity.addEntity()
   Transform.create(stepBox, {
     position: stepBoxPosition,
-    scale: Vector3.create(2, stepBoxSize, 2)
+    scale: Vector3.create(1, stepBoxSize, 1)
+  })
+
+  // The camera mode area is used to fix the camera in the player position
+  const cameraModeAreaE = customAddEntity.addEntity()
+  Transform.create(cameraModeAreaE, { position: sceneCenter })
+  CameraModeArea.create(cameraModeAreaE, {
+    area: Vector3.create(16, stepBoxSize + 10, 16),
+    mode: 0
   })
   MeshCollider.create(stepBox, {
     collisionMask: ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER
@@ -190,8 +191,8 @@ test('billboard: mode BM_ALL', async function (context) {
   const colliderToRaycast = customAddEntity.addEntity()
   Transform.create(colliderToRaycast, {
     parent: engine.CameraEntity,
-    position: Vector3.create(0, 1, 0),
-    scale: Vector3.create(1, 1, 0.1)
+    position: Vector3.create(0, 0, 0),
+    scale: Vector3.create(0.1, 0.1, 0.1)
   })
   MeshCollider.create(colliderToRaycast, {
     collisionMask: ColliderLayer.CL_CUSTOM4,
