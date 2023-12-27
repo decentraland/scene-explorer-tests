@@ -5,6 +5,7 @@ import { Color4, Vector3 } from '@dcl/sdk/math'
 import ReactEcs, { Dropdown, Label, UiEntity } from '@dcl/sdk/react-ecs'
 import { customAddEntity } from 'testing-library/src/utils/entity'
 import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
+import { Material, engine } from '@dcl/sdk/ecs'
 
 let clicked: boolean = false
 
