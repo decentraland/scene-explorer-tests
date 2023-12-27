@@ -64,7 +64,7 @@ function TestElementDropdown(): ReactEcs.JSX.Element {
         fontSize={18}
         color={Color4.White()}
         options={[`Black`, `Red`, `Blue`, `Green`]}
-        onChange={ChangeColor}
+        // onChange={ChangeColor}
         uiTransform={{
           width: '100px',
           height: '60'
