@@ -89,6 +89,12 @@ export async function assertSnapshot(
     ...getMethodRequest(method)
   })
 
+  if (Object.keys(result).length === 0) {
+    throw new Error(
+      `Snapshot result is empty, maybe the explorer is not running in testing mode`
+    )
+  }
+
   if (!result.storedSnapshotFound) {
     if (FAIL_IF_SNAPSHOT_NOT_FOUND) {
       throw new Error(
