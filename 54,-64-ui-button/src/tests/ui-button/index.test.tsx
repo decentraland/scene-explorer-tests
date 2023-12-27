@@ -6,7 +6,7 @@ import ReactEcs, { Button, UiEntity } from '@dcl/sdk/react-ecs'
 import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
 import { getScreenCanvasInfo } from 'testing-library/src/utils/ui/ui-utils'
 
-//let clicked: boolean = false
+// let clicked: boolean = false
 
 // function ChangeColor(color: Color4): void {
 //   for (const [entity] of engine.getEntitiesWith(Material)) {
@@ -26,7 +26,11 @@ function TestElementButton(): ReactEcs.JSX.Element {
       <Button
         value="Click change backgound to blue"
         variant="primary"
-        uiTransform={{ width: 200, height: 50, margin:{left:156, top:231},  }}
+        uiTransform={{
+          width: 200,
+          height: 50,
+          margin: { left: 156, top: 231 }
+        }}
         onMouseDown={() => {
           // clicked = true
           // ChangeColor(Color4.Blue())
