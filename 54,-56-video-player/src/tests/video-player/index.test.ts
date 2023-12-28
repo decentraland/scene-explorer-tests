@@ -36,9 +36,9 @@ async function waitTimeAndAssertSnapshot(
 ): Promise<void> {
   const startAt = Date.now()
   await new Promise<void>((resolve, reject) => {
-    var lastTickNumber = -1
-    var lastEventTime = -1
-    var lastEventOffset = -1
+    let lastTickNumber = -1
+    let lastEventTime = -1
+    let lastEventOffset = -1
 
     function snapshotSystem(): void {
       const videoState = getVideoState(screenEntity)
@@ -50,7 +50,7 @@ async function waitTimeAndAssertSnapshot(
 
       if (videoState === undefined) return
       if (videoState.timestamp === undefined) return
-      if (videoState.state != VideoState.VS_PLAYING) return
+      if (videoState.state !== VideoState.VS_PLAYING) return
 
       if (videoState.tickNumber > lastTickNumber) {
         lastTickNumber = videoState.tickNumber
