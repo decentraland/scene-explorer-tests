@@ -29,11 +29,7 @@ function getVideoState(entity: Entity): PBVideoEvent | undefined {
 
 const TIMEOUT_MS = 100_000
 
-async function waitTimeAndAssertSnapshot(
-  screenEntity: Entity,
-  t: number,
-  snapshotId: number
-): Promise<void> {
+async function waitTimeAndAssertSnapshot(screenEntity: Entity, t: number, snapshotId: number): Promise<void> {
   const startAt = Date.now()
   await new Promise<void>((resolve, reject) => {
     let lastTickNumber = -1
@@ -62,9 +58,7 @@ async function waitTimeAndAssertSnapshot(
 
       if (currentOffset >= t && currentOffset < t + 0.5) {
         engine.removeSystem(systemId)
-        console.log(
-          `Taking snapshot ${snapshotId} with video at ${currentOffset}`
-        )
+        console.log(`Taking snapshot ${snapshotId} with video at ${currentOffset}`)
         assertSnapshot(
           `screenshot/$explorer_snapshot_video_player_${snapshotId}.png`,
           Vector3.create(8, 8, 8),
