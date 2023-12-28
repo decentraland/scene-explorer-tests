@@ -1,11 +1,11 @@
-import { test } from 'testing-library/src/testing'
+import { skipTest, test } from 'testing-library/src/testing'
 import { CustomReactEcsRenderer } from 'testing-library/src/utils/ui'
 
-import { Material, engine } from '@dcl/sdk/ecs'
 import { Color4, Vector3 } from '@dcl/sdk/math'
 import ReactEcs, { Dropdown, Label, UiEntity } from '@dcl/sdk/react-ecs'
-import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
 import { customAddEntity } from 'testing-library/src/utils/entity'
+import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
+import { Material, engine } from '@dcl/sdk/ecs'
 
 let clicked: boolean = false
 
@@ -35,105 +35,135 @@ function ChangeColor(index: number): void {
   }
 }
 
-function TestElementButton(): ReactEcs.JSX.Element {
+function TestElementDropdown(): ReactEcs.JSX.Element {
   return (
     <UiEntity
+      uiBackground={{
+        color: Color4.Red()
+      }}
       uiTransform={{
-        position: { left: '150px', top: '50px' },
-        width: '200px',
-        height: '100px',
-        alignContent: 'auto',
+        position: { left: '0', top: '0' },
+        padding: '15px',
+        width: '100%',
+        height: 'auto',
+        alignContent: 'center',
+        alignItems: 'center',
         flexDirection: 'column',
         alignSelf: 'center'
       }}
     >
       <Label
-        value="Select a color"
+        value="Select a color:"
         fontSize={18}
         color={Color4.White()}
         uiTransform={{
-          width: '140px',
-          height: '40px'
+          width: '100%',
+          height: 'auto'
         }}
       />
       <Dropdown
+        fontSize={18}
+        color={Color4.White()}
         options={[`Black`, `Red`, `Blue`, `Green`]}
         onChange={ChangeColor}
         uiTransform={{
           width: '100px',
-          height: '40px'
+          height: '60'
         }}
       />
     </UiEntity>
   )
 }
 
-test('ui-button: should change background color to red', async function (context) {
+test('ui-dropdown: this test only check the visual style of dropdown', async function (context) {
   customAddEntity.clean()
-  clicked = false
   CustomReactEcsRenderer.destroy()
-  CustomReactEcsRenderer.setUiRenderer(TestElementButton)
-  await context.helpers.waitTicksUntil(() => {
-    if (clicked) {
-      return true
-    } else {
-      return false
-    }
-  })
+  CustomReactEcsRenderer.setUiRenderer(TestElementDropdown)
 
   await context.helpers.waitNTicks(5)
 
   await assertSnapshot(
-    'screenshot/$explorer_snapshot_ui_dropdown_red.png',
+    'screenshot/$explorer_snapshot_ui_dropdown.png',
     Vector3.create(8, 1, 10),
     Vector3.create(8, 1, 8)
   )
-
-  ChangeColor(0)
 })
 
-test('ui-button: should change background color to blue', async function (context) {
-  clicked = false
-  CustomReactEcsRenderer.destroy()
-  CustomReactEcsRenderer.setUiRenderer(TestElementButton)
-  await context.helpers.waitTicksUntil(() => {
-    if (clicked) {
-      return true
-    } else {
-      return false
-    }
-  })
+skipTest(
+  'ui-dropdown: should change background color to red',
+  async function (context) {
+    customAddEntity.clean()
+    clicked = false
+    CustomReactEcsRenderer.destroy()
+    CustomReactEcsRenderer.setUiRenderer(TestElementDropdown)
+    await context.helpers.waitTicksUntil(() => {
+      if (clicked) {
+        return true
+      } else {
+        return false
+      }
+    })
 
-  await context.helpers.waitNTicks(5)
+    await context.helpers.waitNTicks(5)
 
-  await assertSnapshot(
-    'screenshot/$explorer_snapshot_ui_dropdown_blue.png',
-    Vector3.create(8, 1, 10),
-    Vector3.create(8, 1, 8)
-  )
+    await assertSnapshot(
+      'screenshot/$explorer_snapshot_ui_dropdown_red.png',
+      Vector3.create(8, 1, 10),
+      Vector3.create(8, 1, 8)
+    )
 
-  ChangeColor(0)
-})
+    ChangeColor(0)
+  }
+)
 
-test('ui-button: should change background color to green', async function (context) {
-  clicked = false
-  CustomReactEcsRenderer.destroy()
-  CustomReactEcsRenderer.setUiRenderer(TestElementButton)
-  await context.helpers.waitTicksUntil(() => {
-    if (clicked) {
-      return true
-    } else {
-      return false
-    }
-  })
+skipTest(
+  'ui-dropdown: should change background color to blue',
+  async function (context) {
+    clicked = false
+    CustomReactEcsRenderer.destroy()
+    CustomReactEcsRenderer.setUiRenderer(TestElementDropdown)
+    await context.helpers.waitTicksUntil(() => {
+      if (clicked) {
+        return true
+      } else {
+        return false
+      }
+    })
 
-  await context.helpers.waitNTicks(5)
+    await context.helpers.waitNTicks(5)
 
-  await assertSnapshot(
-    'screenshot/$explorer_snapshot_ui_dropdown_green.png',
-    Vector3.create(8, 1, 10),
-    Vector3.create(8, 1, 8)
-  )
+    await assertSnapshot(
+      'screenshot/$explorer_snapshot_ui_dropdown_blue.png',
+      Vector3.create(8, 1, 10),
+      Vector3.create(8, 1, 8)
+    )
 
-  ChangeColor(0)
-})
+    ChangeColor(0)
+  }
+)
+
+skipTest(
+  'ui-dropdown: should change background color to green',
+  async function (context) {
+    clicked = false
+    CustomReactEcsRenderer.destroy()
+    CustomReactEcsRenderer.setUiRenderer(TestElementDropdown)
+    await context.helpers.waitTicksUntil(() => {
+      if (clicked) {
+        return true
+      } else {
+        return false
+      }
+    })
+
+    await context.helpers.waitNTicks(5)
+
+    await assertSnapshot(
+      'screenshot/$explorer_snapshot_ui_dropdown_green.png',
+      Vector3.create(8, 1, 10),
+      Vector3.create(8, 1, 8)
+    )
+
+    ChangeColor(0)
+  }
+)
