@@ -32,9 +32,6 @@ test('avatar-shape: title', async function (context) {
     position: Vector3.create(8, 0.25, 8)
   })
 
-  let out: boolean = false
-  context.helpers.waitTicksUntil(() => out, 50000)
-
   await assertSnapshot(
     'screenshot/$explorer_snapshot_avatar_shape.png',
     Vector3.create(8, 1, 10),
