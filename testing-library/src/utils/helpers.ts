@@ -31,3 +31,17 @@ export function createChainedEntities(
     return entity
   }, parent)
 }
+
+export function withInterval(
+  seconds: number,
+  callback: () => void
+): (dt: number) => void {
+  let t = 0
+  return function (dt: number) {
+    t += dt
+    if (t > seconds) {
+      t = 0
+      callback()
+    }
+  }
+}
