@@ -2,7 +2,7 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "54,-54 Text Shape Unit Test",
+    "title": "Text Shape Unit Test",
     "description": "Text Shape Unit Test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"

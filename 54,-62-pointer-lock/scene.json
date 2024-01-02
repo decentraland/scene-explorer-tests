@@ -2,7 +2,7 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "54,-62 Pointer Lock Unit Test",
+    "title": "Pointer Lock Unit Test",
     "description": "Pointer Lock Unit Test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"

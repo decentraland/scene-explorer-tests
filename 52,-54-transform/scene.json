@@ -2,7 +2,7 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "52,-54 Transform Unit Test",
+    "title": "Transform Unit Test",
     "description": "Transform unit test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"

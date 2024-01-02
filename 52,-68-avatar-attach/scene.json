@@ -2,7 +2,7 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "52,-68 Avatar Attach Unit Test",
+    "title": "Avatar Attach Unit Test",
     "description": "Avatar Attach Unit Test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"

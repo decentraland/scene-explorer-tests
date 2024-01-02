@@ -2,7 +2,7 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "52,-56 Billboard Unit Test",
+    "title": "Billboard Unit Test",
     "description": "Billboard unit test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"

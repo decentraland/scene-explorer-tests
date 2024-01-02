@@ -2,7 +2,7 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "52,-66 Mesh Renderer Unit Test",
+    "title": "Mesh Renderer Unit Test",
     "description": "Mesh Renderer Unit Test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"
