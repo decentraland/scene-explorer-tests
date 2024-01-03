@@ -15,6 +15,9 @@ export const test: TestDefinitionFunction = DEBUG
   : /* @__PURE__ */ () => {}
 export const skipTest: TestDefinitionFunction = () => {}
 
+// This is for skip test that we don't implement yet
+export const skipTest: TestDefinitionFunction = () => {}
+
 function createTestFunction() {
   let testingModule: TestingModule
   try {

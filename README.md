@@ -41,8 +41,9 @@ note: this way does have reload
 ### For all componentes:
 
 ```
-cargo run -- run -- --rendering-driver opengl3 --scene-test "[[52,-52],[52,-54],[52,-56],[52,-58],[52,-60],[52,-62],[52,-64],[52,-66],[52,-68],[54,-52],[54,-54],[54,-56],[54,-58],[54,-60]]" --realm "http://localhost:8000"
+cargo run -- run -- --rendering-driver opengl3 --scene-test "[[52,-52],[52,-54],[52,-56],[52,-58],[52,-60],[52,-62],[52,-64],[52,-66],[52,-68],[54,-52],[54,-54],[54,-56],[54,-58],[54,-60],[54,-64],[54,-66]]" --realm "http://localhost:8000"
 ```
+
 
 ### For specific components:
 
