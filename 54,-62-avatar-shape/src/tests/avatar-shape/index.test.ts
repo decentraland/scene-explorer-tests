@@ -1,4 +1,4 @@
-import { AvatarShape, Transform } from '@dcl/sdk/ecs'
+import { Animator, AvatarShape, PBAnimator, Transform } from '@dcl/sdk/ecs'
 import { Color3, Vector3 } from '@dcl/sdk/math'
 import { test } from 'testing-library/src/testing'
 import { customAddEntity } from 'testing-library/src/utils/entity'
@@ -28,13 +28,17 @@ test('avatar-shape: title', async function (context) {
     ]
   })
 
+  Animator.stopAllAnimations(avatarEntity)
+
   Transform.create(avatarEntity, {
     position: Vector3.create(8, 0.25, 8)
   })
 
+  await context.helpers.waitNTicks(500)
+
   await assertSnapshot(
     'screenshot/$explorer_snapshot_avatar_shape.png',
-    Vector3.create(8, 1, 10),
+    Vector3.create(8, 1.5, 10),
     Vector3.create(8, 1, 8)
   )
 })
