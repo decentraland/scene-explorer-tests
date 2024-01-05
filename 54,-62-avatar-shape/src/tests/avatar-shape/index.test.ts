@@ -1,4 +1,4 @@
-import { Animator, AvatarShape, PBAnimator, Transform } from '@dcl/sdk/ecs'
+import { Animator, AvatarShape, Transform } from '@dcl/sdk/ecs'
 import { Color3, Vector3 } from '@dcl/sdk/math'
 import { test } from 'testing-library/src/testing'
 import { customAddEntity } from 'testing-library/src/utils/entity'
