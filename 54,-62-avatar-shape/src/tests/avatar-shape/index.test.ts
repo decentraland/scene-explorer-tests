@@ -38,7 +38,7 @@ test('avatar-shape: title', async function (context) {
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_avatar_shape.png',
-    Vector3.create(8, 1.5, 10),
+    Vector3.create(8, 2.5, 9.5),
     Vector3.create(8, 1, 8)
   )
 })
