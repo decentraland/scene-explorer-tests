@@ -2,8 +2,8 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "0 EngineInfo Unit Test",
-    "description": "EngineInfo unit test",
+    "title": "NFT Shape Unit Test",
+    "description": "NFT Shape Unit Test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"
   },
@@ -15,8 +15,8 @@
   "main": "bin/game.js",
   "tags": [],
   "scene": {
-    "parcels": ["52,-60"],
-    "base": "52,-60"
+    "parcels": ["54,-68"],
+    "base": "54,-68"
   },
   "spawnPoints": [
     {

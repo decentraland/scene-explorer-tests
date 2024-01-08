@@ -2,7 +2,7 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "52,-58 CameraMode Unit Test",
+    "title": "CameraMode Unit Test",
     "description": "CameraMode unit test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"

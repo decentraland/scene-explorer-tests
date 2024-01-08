@@ -2,7 +2,7 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "54,-58 UI-Background Unit Test",
+    "title": "UI-Background Unit Test",
     "description": "UI-Background Unit Test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"

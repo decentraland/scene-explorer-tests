@@ -2,7 +2,7 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "54,-64 UI-Button Unit Test",
+    "title": "UI-Button Unit Test",
     "description": "UI-Button Unit Test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"
