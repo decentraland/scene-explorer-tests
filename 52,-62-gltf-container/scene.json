@@ -2,7 +2,7 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "52,-62 Gltf Container Unit Test",
+    "title": "Gltf Container Unit Test",
     "description": "Gltf Container Unit Test",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"

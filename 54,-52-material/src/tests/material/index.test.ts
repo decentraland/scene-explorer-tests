@@ -2,12 +2,14 @@ import {
   Material,
   MaterialTransparencyMode,
   MeshRenderer,
-  Transform
+  Transform,
+  executeTask
 } from '@dcl/sdk/ecs'
 import { Color4, Vector3 } from '@dcl/sdk/math'
 import { customAddEntity } from 'testing-library/src/utils/entity'
 import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
 import { test } from 'testing-library/src/testing'
+import { getUserData } from '~system/UserIdentity'
 
 test('material: blue emissiveIntensity:100: if exist a reference snapshot should match with it', async function (context) {
   customAddEntity.clean()
@@ -85,7 +87,9 @@ test('material: blue with texture if exist a reference snapshot should match wit
     bumpTexture: {
       tex: {
         $case: 'texture',
-        texture: { src: 'src/src/assets/images/normal_mapping_normal_map.png' }
+        texture: {
+          src: 'src/src/assets/images/normal_mapping_normal_map.png'
+        }
       }
     },
     albedoColor: Color4.Blue()
@@ -440,6 +444,42 @@ test('material: rock wall texture with bump texture: if exist a reference snapsh
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_material_13.png',
+    Vector3.create(6, 4, 6),
+    Vector3.create(8, 1, 8)
+  )
+})
+
+test('material: avatar portrait', async function (context) {
+  customAddEntity.clean()
+
+  executeTask(async () => {
+    const userData = await getUserData({})
+    const plane = customAddEntity.addEntity()
+    Transform.create(plane, {
+      position: Vector3.create(8, 2, 8),
+      scale: Vector3.create(2, 2, 2)
+    })
+    MeshRenderer.create(plane, {
+      mesh: {
+        $case: 'plane',
+        plane: { uvs: [] }
+      }
+    })
+
+    if (userData.data !== null) {
+      Material.setPbrMaterial(plane, {
+        texture: Material.Texture.Avatar({
+          userId: '0xc09cc22c8f5cf3fb1edbf0b42da2cff70990908b'
+        })
+      })
+    }
+  })
+
+  // TODO: should be able to know when the texture is loaded
+  await context.helpers.waitNTicks(100)
+
+  await assertSnapshot(
+    'screenshot/$explorer_snapshot_material_14.png',
     Vector3.create(6, 4, 6),
     Vector3.create(8, 1, 8)
   )

@@ -6,7 +6,8 @@ import {
   engine,
   type Entity,
   VideoEvent,
-  type PBVideoEvent
+  type PBVideoEvent,
+  VideoState
 } from '@dcl/sdk/ecs'
 import { Vector3 } from '@dcl/sdk/math'
 
@@ -35,7 +36,9 @@ async function waitTimeAndAssertSnapshot(
 ): Promise<void> {
   const startAt = Date.now()
   await new Promise<void>((resolve, reject) => {
-    let timePreviousCrossed = false
+    let lastTickNumber = -1
+    let lastEventTime = -1
+    let lastEventOffset = -1
 
     function snapshotSystem(): void {
       const videoState = getVideoState(screenEntity)
@@ -47,15 +50,21 @@ async function waitTimeAndAssertSnapshot(
 
       if (videoState === undefined) return
       if (videoState.timestamp === undefined) return
+      if (videoState.state !== VideoState.VS_PLAYING) return
 
-      if (videoState.currentOffset < t) {
-        timePreviousCrossed = true
+      if (videoState.tickNumber > lastTickNumber) {
+        lastTickNumber = videoState.tickNumber
+        lastEventTime = Date.now()
+        lastEventOffset = videoState.currentOffset
       }
 
-      if (timePreviousCrossed && videoState.currentOffset >= t) {
+      const currentOffset =
+        lastEventOffset + (Date.now() - lastEventTime) / 1000
+
+      if (currentOffset >= t && currentOffset < t + 0.5) {
         engine.removeSystem(systemId)
         console.log(
-          `Taking snapshot ${snapshotId} with video at ${videoState.currentOffset}`
+          `Taking snapshot ${snapshotId} with video at ${currentOffset}`
         )
         assertSnapshot(
           `screenshot/$explorer_snapshot_video_player_${snapshotId}.png`,
@@ -103,8 +112,8 @@ test('video-player: if exist a reference snapshot should match with it', async f
     metallic: 0
   })
 
-  await waitTimeAndAssertSnapshot(screenEntity, 0.5, 1)
-  await waitTimeAndAssertSnapshot(screenEntity, 1.5, 2)
-  await waitTimeAndAssertSnapshot(screenEntity, 2.5, 3)
-  await waitTimeAndAssertSnapshot(screenEntity, 3.5, 4)
+  await waitTimeAndAssertSnapshot(screenEntity, 0.25, 1)
+  await waitTimeAndAssertSnapshot(screenEntity, 1.25, 2)
+  await waitTimeAndAssertSnapshot(screenEntity, 2.25, 3)
+  await waitTimeAndAssertSnapshot(screenEntity, 3.25, 4)
 })
