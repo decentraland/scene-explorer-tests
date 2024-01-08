@@ -41,9 +41,8 @@ note: this way does have reload
 ### For all componentes:
 
 ```
-cargo run -- run -- --rendering-driver opengl3 --scene-test "[[52,-52],[52,-54],[52,-56],[52,-58],[52,-60],[52,-62],[52,-64],[52,-66],[52,-68],[54,-52],[54,-54],[54,-56],[54,-58],[54,-60],[54,-64],[54,-66]]" --realm "http://localhost:8000"
+cargo run -- run -- --rendering-driver opengl3 -scene-test "[[52,-52],[52,-54],[52,-56],[52,-58],[52,-60],[52,-62],[52,-64],[52,-66],[52,-68],[54,-52],[54,-54],[54,-56],[54,-58],[54,-60],[54,-62],[54,-64],[54,-66],[54,-68]]" --realm "http://localhost:8000"
 ```
-
 
 ### For specific components:
 
@@ -52,3 +51,29 @@ cargo run -- run -- --rendering-driver opengl3 --scene-test "[[coord.x,coord.y]]
 ```
 
 where coord.x and coord.y are the scene coordinates
+
+### For test with docker:
+
+Create and change dir to a new folder:
+
+```
+mkdir docker
+cd docker/
+```
+
+Then clone godot-explorer repository in this folder and run docker command and find the ID:
+
+```
+git clone git@github.com:leanmendoza/godot-explorer.git
+docker run -it --mount src="$(pwd)",target=/app,type=bind kuruk/dcl-godot-android-build
+docker ps -a
+docker start -i ID
+```
+
+Then, with docker initialized:
+
+```
+cd rust/xtask
+cargo install
+cargo run -- run -- --rendering-driver opengl3 --scene-test "[[52,-52],[52,-54],[52,-56],[52,-58],[52,-60],[52,-62],[52,-64],[52,-66],[52,-68],[54,-52],[54,-54],[54,-56],[54,-58],[54,-60],[54,-62],[54,-64],[54,-66],[54,-68]]" --realm "https://decentraland.github.io/scene-explorer-tests/scene-explorer-tests" --snapshot-folder snapshots
+```
