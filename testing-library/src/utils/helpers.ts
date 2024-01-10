@@ -45,3 +45,23 @@ export function withInterval(
     }
   }
 }
+
+export function createDelayFunction() {
+  const promises: Array<{ resolve: any; t: number; ms: number }> = []
+  engine.addSystem(function () {
+    for (let i = 0; i < promises.length; i++) {
+      const promise = promises[i]
+      if (Date.now() - promise.t > promise.ms) {
+        promise.resolve()
+        promises.splice(i, 1)
+        i--
+      }
+    }
+  })
+
+  return async function (ms: number) {
+    return await new Promise((resolve) => {
+      promises.push({ resolve, t: Date.now(), ms })
+    })
+  }
+}
