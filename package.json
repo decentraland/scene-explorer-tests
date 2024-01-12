@@ -1,6 +1,6 @@
 {
-  "name": "scene-explorer-tests",
-  "version": "protocol-squad",
+  "name": "@dcl/scene-explorer-tests",
+  "version": "1.0.0",
   "description": "SDK7 Template scene",
   "scripts": {
     "build": "sdk-commands build --skip-install",
@@ -61,5 +61,12 @@
   "dependencies": {
     "glob": "^10.3.10",
     "syncpack": "^11.2.1"
+  },
+  "files": [
+    "static"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decentraland/scene-explorer-tests"
   }
 }
