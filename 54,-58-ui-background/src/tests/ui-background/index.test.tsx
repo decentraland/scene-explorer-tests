@@ -171,7 +171,7 @@ function FlexBoxTest(): JSX.Element {
   )
 }
 
-const nineSlicesTextureSource = "src/assets/images/9slice.png"
+const nineSlicesTextureSource = 'src/assets/images/9slice.png'
 
 const backgroundTextureTests = [
   {
@@ -338,27 +338,30 @@ test('ui-brackground: should render different flexbox property with colors', asy
 })
 
 backgroundTextureTests.forEach((item) => {
-  test('ui-brackground: shoud test texture -> ' + item.description, async function (context) {
-    const snapshotId = item.description.replace(/ /g, '_').toLocaleLowerCase()
-    CustomReactEcsRenderer.destroy()
-    CustomReactEcsRenderer.setUiRenderer(() => (
-      <MainCanvas>
-        <UiItem
-          flexDirection={'column'}
-          color={Color4.Blue()}
-          width="50%"
-          height="50%"
-          position={{ top: '25%', left: '25%' }}
-        >
-          {item.value}
-        </UiItem>
-      </MainCanvas>
-    ))
-    await context.helpers.waitNTicks(10)
-    await assertSnapshot(
-      'screenshot/$explorer_snapshot_ui_background_' + snapshotId + '.png',
-      Vector3.create(8, 1, 10),
-      Vector3.create(8, 1, 8)
-    )
-  })
+  test(
+    'ui-brackground: shoud test texture -> ' + item.description,
+    async function (context) {
+      const snapshotId = item.description.replace(/ /g, '_').toLocaleLowerCase()
+      CustomReactEcsRenderer.destroy()
+      CustomReactEcsRenderer.setUiRenderer(() => (
+        <MainCanvas>
+          <UiItem
+            flexDirection={'column'}
+            color={Color4.Blue()}
+            width="50%"
+            height="50%"
+            position={{ top: '25%', left: '25%' }}
+          >
+            {item.value}
+          </UiItem>
+        </MainCanvas>
+      ))
+      await context.helpers.waitNTicks(10)
+      await assertSnapshot(
+        'screenshot/$explorer_snapshot_ui_background_' + snapshotId + '.png',
+        Vector3.create(8, 1, 10),
+        Vector3.create(8, 1, 8)
+      )
+    }
+  )
 })
