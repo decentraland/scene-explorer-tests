@@ -2,18 +2,22 @@
 
 echo "Installing and building all folders"
 
-rm -rf node_modules
+rm -rf node_modules package-lock.json
 
-JS_RUNTIME_PACKAGE="https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/@dcl/js-runtime/dcl-js-runtime-7.3.36-7291127796.commit-b299b0d.tgz"
-SDK_PACKAGE="https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/dcl-sdk-7.3.36-7291127796.commit-b299b0d.tgz"
-
-npm i $SDK_PACKAGE $JS_RUNTIME_PACKAGE --legacy-peer-deps
+# Default values for the packages
+DEFAULT_JS_RUNTIME="https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/@dcl/js-runtime/dcl-js-runtime-7.3.36-7291127796.commit-b299b0d.tgz"
+DEFAULT_SDK="https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/dcl-sdk-7.3.36-7291127796.commit-b299b0d.tgz"
 
 # then the rest of the dependencies
 npm install --legacy-peer-deps
 
-npm run sync
-
+if [ ! -z $SDK_VERSION ]; then
+  echo "Installing $SDK_VERSION"
+  npm i $SDK_VERSION
+else
+  echo "Installing $DEFAULT_SDK $DEFAULT_JS_RUNTIME"
+  npm i $DEFAULT_SDK $DEFAULT_JS_RUNTIME
+fi
 npm ls @dcl/sdk
 
 # clean the git state of package.json(s)
@@ -26,9 +30,6 @@ if [[ $? -eq 1 ]]; then
   echo "GIT IS ON DIRTY STATE 🔴 Please run 'npm run update-parcels' locally and commit"
   exit 1
 fi
-
-# ensure all packages are on sync
-npm run sync && npm run test-sync
 
 # and lastly build scenes
 npm run build
