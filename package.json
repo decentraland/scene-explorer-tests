@@ -49,6 +49,8 @@
     "52,-64-visibility",
     "52,-66-mesh-renderer",
     "52,-68-avatar-attach",
+    "52,-70-raycast-unit-tests",
+    "52,-72-main-crdt",
     "54,-52-material",
     "54,-54-text-shape",
     "54,-56-video-player",
@@ -58,7 +60,11 @@
     "54,-64-ui-button",
     "54,-66-ui-dropdown",
     "54,-68-nft-shape",
-    "testing-library"
+    "54,-70-dbmonster",
+    "54,-72-ui-canvas-information",
+    "56,-52-testing-3d-models",
+    "56,-57-scene-bounds-check",
+    "56,-70-testing-gallery"
   ],
   "files": [
     "static"

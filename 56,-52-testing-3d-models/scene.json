@@ -1,0 +1,59 @@
+{
+  "ecs7": true,
+  "runtimeVersion": "7",
+  "display": {
+    "title": "testing-3d-models",
+    "description": "A set of components and materials to test",
+    "navmapThumbnail": "images/scene-thumbnail.png",
+    "favicon": "favicon_asset"
+  },
+  "owner": "",
+  "contact": {
+    "name": "SDK",
+    "email": ""
+  },
+  "main": "bin/index.js",
+  "tags": [],
+  "scene": {
+    "parcels": [
+      "56,-55",
+      "56,-54",
+      "56,-53",
+      "56,-52",
+      "57,-55",
+      "57,-54",
+      "57,-53",
+      "57,-52",
+      "58,-55",
+      "58,-54",
+      "58,-53",
+      "58,-52",
+      "59,-55",
+      "59,-54",
+      "59,-53",
+      "59,-52"
+    ],
+    "base": "56,-55"
+  },
+  "worldConfiguration": {
+    "name": "shibu.dcl.eth"
+  },
+  "spawnPoints": [
+    {
+      "name": "spawn1",
+      "default": true,
+      "position": {
+        "x": [0, 3],
+        "y": [0, 0],
+        "z": [0, 3]
+      },
+      "cameraTarget": {
+        "x": 8,
+        "y": 1,
+        "z": 8
+      }
+    }
+  ],
+  "featureToggles": {},
+  "name": "testing-3d-models"
+}

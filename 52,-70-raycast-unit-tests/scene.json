@@ -1,0 +1,38 @@
+{
+  "runtimeVersion": "7",
+  "display": {
+    "title": "raycast-unit-tests",
+    "description": "Raycast unit tests",
+    "navmapThumbnail": "images/scene-thumbnail.png",
+    "favicon": "favicon_asset"
+  },
+  "owner": "",
+  "contact": {
+    "name": "menduz",
+    "email": "mendez@decentraland.org"
+  },
+  "main": "bin/index.js",
+  "tags": [],
+  "scene": {
+    "parcels": ["52,-70"],
+    "base": "52,-70"
+  },
+  "spawnPoints": [
+    {
+      "name": "spawn1",
+      "default": true,
+      "position": {
+        "x": [0, 3],
+        "y": [0, 0],
+        "z": [0, 3]
+      },
+      "cameraTarget": {
+        "x": 8,
+        "y": 1,
+        "z": 8
+      }
+    }
+  ],
+  "featureToggles": {},
+  "name": "raycast-unit-tests"
+}
