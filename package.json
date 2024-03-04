@@ -64,7 +64,8 @@
     "54,-72-ui-canvas-information",
     "56,-52-testing-3d-models",
     "56,-57-scene-bounds-check",
-    "56,-70-testing-gallery"
+    "56,-70-testing-gallery",
+    "testing-library"
   ],
   "files": [
     "static"
