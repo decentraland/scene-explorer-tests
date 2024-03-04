@@ -3,7 +3,7 @@
   "description": "Dance Floor",
   "version": "1.0.0",
   "dependencies": {
-    "@dcl/js-runtime": "latest",
+    "@dcl/js-runtime": "7.3.36-7291127796.commit-b299b0d",
     "@dcl/sdk": "latest"
   },
   "devDependencies": {},
