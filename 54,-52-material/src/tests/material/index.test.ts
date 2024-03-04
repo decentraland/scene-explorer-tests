@@ -476,7 +476,7 @@ test('material: avatar portrait', async function (context) {
   })
 
   // TODO: should be able to know when the texture is loaded
-  await context.helpers.waitNTicks(100)
+  await context.helpers.waitNTicks(500)
 
   await assertSnapshot(
     'screenshot/$explorer_snapshot_material_14.png',
