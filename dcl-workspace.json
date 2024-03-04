@@ -21,10 +21,9 @@
     { "path": "54,-66-ui-dropdown" },
     { "path": "54,-68-nft-shape" },
     { "path": "54,-70-dbmonster" },
-    { "path": "54,-74-ui-canvas-information" },
+    { "path": "54,-72-ui-canvas-information" },
     { "path": "56,-52-testing-3d-models" },
     { "path": "56,-57-scene-bounds-check" },
-
-    { "path": "testing-library" }
+    { "path": "56,-70-testing-gallery" }
   ]
 }

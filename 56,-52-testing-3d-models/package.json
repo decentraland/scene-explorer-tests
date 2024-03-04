@@ -1,16 +1,15 @@
 {
   "name": "3d-model-tests",
-  "description": "3D model tests",
-  "version": "1.0.0",
-  "devDependencies": {
-    "@dcl/js-runtime": "7.3.36-7291127796.commit-b299b0d",
-    "@dcl/sdk": "latest"
-  },
+  "version": "protocol-squad",
+  "description": "SDK7 Template scene",
   "scripts": {
-    "build": "sdk-commands build",
+    "build": "sdk-commands build --skip-install",
     "deploy": "sdk-commands deploy",
-    "start": "sdk-commands start",
-    "upgrade-sdk": "npm install --save-dev @dcl/sdk@latest",
-    "upgrade-sdk:next": "npm install --save-dev @dcl/sdk@next"
+    "start": "sdk-commands start"
+  },
+  "devDependencies": {
+    "@dcl/js-runtime": "https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/@dcl/js-runtime/dcl-js-runtime-7.3.36-7291127796.commit-b299b0d.tgz",
+    "@dcl/sdk": "https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/psquad/test-framework-tool/dcl-sdk-7.3.36-7291127796.commit-b299b0d.tgz",
+    "testing-library": "./../testing-library/"
   }
 }
