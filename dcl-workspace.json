@@ -9,8 +9,8 @@
     { "path": "52,-64-visibility" },
     { "path": "52,-66-mesh-renderer" },
     { "path": "52,-68-avatar-attach" },
-    { "path": "52,-70-raycast-unit-tests" },
-    { "path": "52,-72-main-crdt" },
+    { "path": "goerli-scenes/52,-70-raycast-unit-tests" },
+    { "path": "goerli-scenes/52,-72-main-crdt" },
     { "path": "54,-52-material" },
     { "path": "54,-54-text-shape" },
     { "path": "54,-56-video-player" },
@@ -20,10 +20,10 @@
     { "path": "54,-64-ui-button" },
     { "path": "54,-66-ui-dropdown" },
     { "path": "54,-68-nft-shape" },
-    { "path": "54,-70-dbmonster" },
-    { "path": "54,-72-ui-canvas-information" },
-    { "path": "56,-52-testing-3d-models" },
-    { "path": "56,-57-scene-bounds-check" },
-    { "path": "56,-70-testing-gallery" }
+    { "path": "goerli-scenes/54,-70-dbmonster" },
+    { "path": "goerli-scenes/54,-72-ui-canvas-information" },
+    { "path": "goerli-scenes/56,-52-testing-3d-models" },
+    { "path": "goerli-scenes/56,-57-scene-bounds-check" },
+    { "path": "goerli-scenes/56,-70-testing-gallery" }
   ]
 }
