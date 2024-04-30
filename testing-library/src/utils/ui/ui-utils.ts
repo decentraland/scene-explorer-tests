@@ -1,11 +1,7 @@
-export function getScreenCanvasInfo(): { w: number; h: number } {
-  return {
-    w: 512,
-    h: 512
-  }
-  // TODO: Need this information from explorer
-  // return {
-  //   w: UiCanvasInformation.getOrNull(engine.RootEntity)?.width || 24,
-  //   h: UiCanvasInformation.getOrNull(engine.RootEntity)?.height || 24
-  // }
+import { UiCanvasInformation, engine } from "@dcl/sdk/ecs";
+import { type Vector2 } from "~system/RestrictedActions";
+
+export function getScreenCanvasInfo(): Vector2 {
+  const canvasInfo = UiCanvasInformation.get(engine.RootEntity)
+  return  { x: canvasInfo.width, y: canvasInfo.height }
 }

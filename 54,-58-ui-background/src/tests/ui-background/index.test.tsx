@@ -6,6 +6,7 @@ import type { JSX } from '@dcl/sdk/react-ecs'
 import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
 import { assertSnapshot } from 'testing-library/src/utils/snapshot-test'
 import { MainCanvas, UiItem } from 'testing-library/src/utils/ui/item'
+import { getScreenCanvasInfo } from 'testing-library/src/utils/ui/ui-utils'
 
 function TestElementGreen(): ReactEcs.JSX.Element {
   return (
@@ -226,13 +227,16 @@ const backgroundTextureTests = [
     value: (
       <UiItem
         avatarTexture={{
-          userId: '0xa24793319d07844ebbee32f76b41e85bf81321d4'
+          userId: '0x83f9192d59b393c8789b55d446e5d4a77075c820'
         }}
+        color={Color4.create(1, 1, 1, 0.5)}
         uvs={[0, 0, 1, 1]}
         width={'100%'}
         height={'100%'}
       />
-    )
+    ),
+    // With 10 seconds we ensure the texture is loaded
+    delay: 10,
   },
   {
     description: 'NineSlices with default textureSlices',
@@ -300,7 +304,8 @@ test('ui-brackground: should render the entire screen green', async function (co
   await assertSnapshot(
     'screenshot/$explorer_snapshot_ui_background_all_screen_green.png',
     Vector3.create(8, 1, 10),
-    Vector3.create(8, 1, 8)
+    Vector3.create(8, 1, 8),
+    getScreenCanvasInfo()
   )
 })
 
@@ -311,7 +316,8 @@ test('ui-brackground: should render the entire screen red', async function (cont
   await assertSnapshot(
     'screenshot/$explorer_snapshot_ui_background_all_screen_red.png',
     Vector3.create(8, 1, 10),
-    Vector3.create(8, 1, 8)
+    Vector3.create(8, 1, 8),
+    getScreenCanvasInfo()
   )
 })
 
@@ -322,7 +328,8 @@ test('ui-brackground: should render the entire screen rocks', async function (co
   await assertSnapshot(
     'screenshot/$explorer_snapshot_ui_background_all_screen_rocks.png',
     Vector3.create(8, 1, 10),
-    Vector3.create(8, 1, 8)
+    Vector3.create(8, 1, 8),
+    getScreenCanvasInfo()
   )
 })
 
@@ -333,7 +340,8 @@ test('ui-brackground: should render different flexbox property with colors', asy
   await assertSnapshot(
     'screenshot/$explorer_snapshot_ui_background_test_flexbox.png',
     Vector3.create(8, 1, 10),
-    Vector3.create(8, 1, 8)
+    Vector3.create(8, 1, 8),
+    getScreenCanvasInfo()
   )
 })
 
@@ -357,11 +365,18 @@ backgroundTextureTests.forEach((item) => {
         </MainCanvas>
       ))
       await context.helpers.waitNTicks(10)
+
+      if (item.delay !== undefined) {
+        await context.helpers.waitTicksUntil(() => false, item.delay * 1000)
+      }
+
       await assertSnapshot(
         'screenshot/$explorer_snapshot_ui_background_' + snapshotId + '.png',
         Vector3.create(8, 1, 10),
-        Vector3.create(8, 1, 8)
+        Vector3.create(8, 1, 8),
+        getScreenCanvasInfo()
       )
     }
   )
 })
+
