@@ -236,7 +236,7 @@ const backgroundTextureTests = [
       />
     ),
     // With 10 seconds we ensure the texture is loaded
-    delay: 10,
+    delay: 10
   },
   {
     description: 'NineSlices with default textureSlices',
@@ -379,4 +379,3 @@ backgroundTextureTests.forEach((item) => {
     }
   )
 })
-

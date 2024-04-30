@@ -23,9 +23,7 @@ function TestElementText(): ReactEcs.JSX.Element {
 
 function TestElementTextBlue(): ReactEcs.JSX.Element {
   return (
-    <MainCanvas
-        color={Color4.Red()}
-    >
+    <MainCanvas color={Color4.Red()}>
       <Label
         value="This is a label"
         color={Color4.Blue()}
