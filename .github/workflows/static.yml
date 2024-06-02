@@ -1,4 +1,4 @@
-name: Deploy static scene to Github Pages
+name: Deploy static scene to Github Pages (@dcl/sdk@godot)
 
 on:
   # Runs on pushes targeting the default branch
@@ -36,10 +36,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 18.x
-      - name: build all (test)
+      - name: build all (@dcl/sdk@nextgodot)
         run: bash build.sh
       - name: export-static
-        run: npm run export-static
+        run: >
+          npm run export-static -- \
+          --destination static \
+          --realmName scene-explorer-tests \
+          --baseUrl https://decentraland.github.io/scene-explorer-tests/ \
+          --commsAdapter ws-room:ws-room-service.decentraland.org/rooms/scene-explorer-tests"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
